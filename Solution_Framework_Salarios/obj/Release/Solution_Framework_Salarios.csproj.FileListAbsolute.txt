@@ -1,0 +1,15 @@
+D:\Pasar a la Nueva Maquina\Londra Local Kevin\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\bin\Release\Solution_Framework_Salarios.dll
+D:\Pasar a la Nueva Maquina\Londra Local Kevin\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\bin\Release\Solution_Framework_Salarios.pdb
+D:\Pasar a la Nueva Maquina\Londra Local Kevin\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Pasar a la Nueva Maquina\Londra Local Kevin\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\bin\Release\Microsoft.Practices.EnterpriseLibrary.Configuration.Design.dll
+D:\Pasar a la Nueva Maquina\Londra Local Kevin\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Design.dll
+D:\Pasar a la Nueva Maquina\Londra Local Kevin\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Pasar a la Nueva Maquina\Londra Local Kevin\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\bin\Release\Microsoft.Practices.ObjectBuilder.dll
+D:\Pasar a la Nueva Maquina\Londra Local Kevin\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\bin\Release\Microsoft.ReportViewer.Common.dll
+D:\Pasar a la Nueva Maquina\Londra Local Kevin\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\bin\Release\Microsoft.ReportViewer.DataVisualization.dll
+D:\Pasar a la Nueva Maquina\Londra Local Kevin\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\Pasar a la Nueva Maquina\Londra Local Kevin\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\obj\Release\Solution_Framework_Salarios.csproj.AssemblyReference.cache
+D:\Pasar a la Nueva Maquina\Londra Local Kevin\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\obj\Release\Solution_Framework_Salarios.csproj.CoreCompileInputs.cache
+D:\Pasar a la Nueva Maquina\Londra Local Kevin\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\obj\Release\Solution_Framework_Salarios.csproj.CopyComplete
+D:\Pasar a la Nueva Maquina\Londra Local Kevin\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\obj\Release\Solution_Framework_Salarios.dll
+D:\Pasar a la Nueva Maquina\Londra Local Kevin\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\obj\Release\Solution_Framework_Salarios.pdb

@@ -1,0 +1,213 @@
+﻿<%@ Page Title="Reporte de Modificación de Contrato" Language="C#" MasterPageFile="~/MasterPageSIGRH.master" AutoEventWireup="true" CodeFile="ReporteContratoModificacion.aspx.cs" Inherits="Precontrataciones_ReporteContratoModificacion" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="container-fluid mt-4">
+        <!-- ============================================================ -->
+        <!-- ENCABEZADO DEL REPORTE -->
+        <!-- ============================================================ -->
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-primary" style="font-weight: bold;">
+                    <i class="fas fa-file-contract mr-2"></i>REPORTE DE MODIFICACIÓN DE CONTRATO
+                </h2>
+                <hr style="border-top: 3px solid #007bff;" />
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- DATOS DEL FUNCIONARIO -->
+        <!-- ============================================================ -->
+        <div class="card mt-3">
+            <div class="card-header bg-info text-white">
+                <h4 class="mb-0"><i class="fas fa-id-card mr-2"></i> DATOS DEL FUNCIONARIO</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td style="width: 40%; font-weight: bold;">Nombre Completo:</td>
+                                <td><asp:Literal ID="ltlNombreCompleto" runat="server" /></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Carnet de Identidad:</td>
+                                <td><asp:Literal ID="ltlCarnet" runat="server" /></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Fecha de Nacimiento:</td>
+                                <td><asp:Literal ID="ltlFechaNac" runat="server" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td style="width: 40%; font-weight: bold;">Sexo:</td>
+                                <td><asp:Literal ID="ltlSexo" runat="server" /></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Estado Civil:</td>
+                                <td><asp:Literal ID="ltlEstadoCivil" runat="server" /></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Dirección:</td>
+                                <td><asp:Literal ID="ltlDireccion" runat="server" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- DATOS DEL CONTRATO MODIFICADO -->
+        <!-- ============================================================ -->
+        <div class="card mt-3">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0"><i class="fas fa-file-signature mr-2"></i> DATOS DEL CONTRATO MODIFICADO</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th style="width: 20%;">Campo</th>
+                                <th style="width: 30%;">Valor</th>
+                                <th style="width: 20%;">Campo</th>
+                                <th style="width: 30%;">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: bold;">Cargo:</td>
+                                <td><asp:Literal ID="ltlCargo" runat="server" /></td>
+                                <td style="font-weight: bold;">Sueldo (Bs.):</td>
+                                <td><asp:Literal ID="ltlSueldo" runat="server" /></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Fecha de Inicio:</td>
+                                <td><asp:Literal ID="ltlFechaInicio" runat="server" /></td>
+                                <td style="font-weight: bold;">Fecha de Fin:</td>
+                                <td><asp:Literal ID="ltlFechaFin" runat="server" /></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Nivel Salarial:</td>
+                                <td><asp:Literal ID="ltlNivel" runat="server" /></td>
+                                <td style="font-weight: bold;">Clase:</td>
+                                <td><asp:Literal ID="ltlClase" runat="server" /></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Unidad Organizacional:</td>
+                                <td colspan="3"><asp:Literal ID="ltlUnidad" runat="server" /></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">CITE / N° Documento:</td>
+                                <td colspan="3"><asp:Literal ID="ltlCITE" runat="server" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- DESCRIPTOR DE PUESTO -->
+        <!-- ============================================================ -->
+        <div class="card mt-3">
+            <div class="card-header bg-warning text-dark">
+                <h4 class="mb-0"><i class="fas fa-clipboard-list mr-2"></i> DESCRIPTOR DE PUESTO</h4>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <td style="width: 20%; font-weight: bold;">Descripción del Puesto:</td>
+                        <td><asp:Literal ID="ltlDescripcionPuesto" runat="server" /></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">Objetivo / Justificación:</td>
+                        <td><asp:Literal ID="ltlObjetivo" runat="server" /></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">Funciones:</td>
+                        <td><asp:Literal ID="ltlFunciones" runat="server" style="white-space: pre-line;" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- DATOS DE LA MODIFICACIÓN -->
+        <!-- ============================================================ -->
+        <div class="card mt-3">
+            <div class="card-header bg-danger text-white">
+                <h4 class="mb-0"><i class="fas fa-clock mr-2"></i> DATOS DE LA MODIFICACIÓN</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td style="width: 40%; font-weight: bold;">Fecha de Modificación:</td>
+                                <td><asp:Literal ID="ltlFechaModificacion" runat="server" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td style="width: 40%; font-weight: bold;">Usuario que Modificó:</td>
+                                <td><asp:Literal ID="ltlUsuario" runat="server" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- PIE DE PÁGINA / BOTONES -->
+        <!-- ============================================================ -->
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <hr />
+                <button onclick="window.print();" class="btn btn-primary btn-lg no-print">
+                    <i class="fas fa-print"></i> Imprimir
+                </button>
+                <button onclick="window.location='ListaSolicitudes.aspx';" class="btn btn-secondary btn-lg no-print">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </button>
+                <hr />
+                <p class="text-muted">
+                    <i class="fas fa-info-circle"></i> 
+                    Este documento es una copia del contrato modificado.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            .card { border: 1px solid #000 !important; }
+            .table { font-size: 11px; }
+            .table td { padding: 5px; }
+            .card-header { background-color: #f8f9fa !important; color: #000 !important; border-bottom: 2px solid #000 !important; }
+            .text-primary { color: #000 !important; }
+            .text-success { color: #000 !important; }
+            .text-warning { color: #000 !important; }
+            .text-danger { color: #000 !important; }
+            .text-info { color: #000 !important; }
+            .table-bordered { border: 1px solid #000 !important; }
+            .table-bordered td, .table-bordered th { border: 1px solid #000 !important; }
+        }
+        .table td { padding: 8px; vertical-align: middle; }
+        .text-primary { color: #007bff; }
+        .text-success { color: #28a745; }
+        .text-warning { color: #ffc107; }
+        .text-danger { color: #dc3545; }
+        .text-info { color: #17a2b8; }
+        .text-muted { color: #6c757d; }
+        .card { border-radius: 0.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+        .card-header { font-weight: bold; border-bottom: 2px solid rgba(0,0,0,0.125); }
+    </style>
+</asp:Content>

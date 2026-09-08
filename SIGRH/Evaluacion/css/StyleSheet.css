@@ -1,0 +1,19 @@
+﻿#Background {
+          position: fixed;
+          z-index: 98;
+          top: 0px;
+          left: 0px;
+          right: 0px;
+          bottom: 0px;
+            background-color: #aaa;
+            filter: alpha(opacity=80);
+            opacity: 0.8;
+} 
+#Progress 
+{
+          z-index: 99;
+ margin-left:45%;        }
+.card_tarjet {
+    margin: 0;
+}
+

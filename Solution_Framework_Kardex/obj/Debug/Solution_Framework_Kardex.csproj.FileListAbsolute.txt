@@ -1,0 +1,89 @@
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Kardex\bin\Debug\Solution_Framework_Kardex.dll
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Kardex\bin\Debug\Solution_Framework_Kardex.pdb
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Kardex\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Kardex\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Kardex\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Repositorio_SIGRH3\SIGRH3\SIGRH\Bin\Solution_Framework_Kardex.dll
+D:\Repositorio_SIGRH3\SIGRH3\SIGRH\Bin\Solution_Framework_Kardex.pdb
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csprojAssemblyReference.cache
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CoreCompileInputs.cache
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CopyComplete
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.dll
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.pdb
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_Kardex.dll
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_Kardex.pdb
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CoreCompileInputs.cache
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CopyComplete
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.dll
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_Kardex.dll
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_Kardex.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CoreCompileInputs.cache
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CopyComplete
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.dll
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.AssemblyReference.cache
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_Kardex.dll
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_Kardex.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CoreCompileInputs.cache
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CopyComplete
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.dll
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.pdb
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\SIGRH\Bin\Solution_Framework_Kardex.dll
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\SIGRH\Bin\Solution_Framework_Kardex.pdb
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CoreCompileInputs.cache
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.dll
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.pdb
+D:\Prueba\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_Kardex.dll
+D:\Prueba\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_Kardex.pdb
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CoreCompileInputs.cache
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CopyComplete
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.dll
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.pdb
+D:\Prueba\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_Kardex.dll
+D:\Prueba\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_Kardex.pdb
+D:\Prueba\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.AssemblyReference.cache
+D:\Prueba\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CoreCompileInputs.cache
+D:\Prueba\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CopyComplete
+D:\Prueba\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.dll
+D:\Prueba\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.pdb
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_Kardex.dll
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_Kardex.pdb
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.AssemblyReference.cache
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CoreCompileInputs.cache
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CopyComplete
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.dll
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.pdb
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Kardex.dll
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Kardex.pdb
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CoreCompileInputs.cache
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CopyComplete
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.dll
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.pdb
+E:\RRHH\LONDRA 1_2\Nueva carpeta\LONDRA 13-12-2022\SIGRH\Bin\Solution_Framework_Kardex.dll
+E:\RRHH\LONDRA 1_2\Nueva carpeta\LONDRA 13-12-2022\SIGRH\Bin\Solution_Framework_Kardex.pdb
+E:\RRHH\LONDRA 1_2\Nueva carpeta\LONDRA 13-12-2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CoreCompileInputs.cache
+E:\RRHH\LONDRA 1_2\Nueva carpeta\LONDRA 13-12-2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CopyComplete
+E:\RRHH\LONDRA 1_2\Nueva carpeta\LONDRA 13-12-2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.dll
+E:\RRHH\LONDRA 1_2\Nueva carpeta\LONDRA 13-12-2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.pdb
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\SIGRH\Bin\Solution_Framework_Kardex.dll
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\SIGRH\Bin\Solution_Framework_Kardex.pdb
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CopyComplete
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.dll
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.pdb
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.AssemblyReference.cache
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Kardex.dll
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Kardex.pdb
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CoreCompileInputs.cache
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CopyComplete
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.dll
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.pdb
+C:\Users\Angela Lopez\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Kardex.dll
+C:\Users\Angela Lopez\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Kardex.pdb
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.AssemblyReference.cache
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.csproj.CoreCompileInputs.cache
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_Kardex\obj\Debug\Solution.DE18E4CB.Up2Date
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.dll
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_Kardex\obj\Debug\Solution_Framework_Kardex.pdb

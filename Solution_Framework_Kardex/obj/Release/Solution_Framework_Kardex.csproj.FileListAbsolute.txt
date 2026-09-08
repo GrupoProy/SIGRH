@@ -1,0 +1,13 @@
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\bin\Release\Solution_Framework_Kardex.dll
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\bin\Release\Solution_Framework_Kardex.pdb
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\bin\Release\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\bin\Release\Microsoft.Practices.ObjectBuilder.dll
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\obj\Release\Solution_Framework_Kardex.csproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\obj\Release\Solution_Framework_Kardex.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\obj\Release\Solution_Framework_Kardex.csproj.CopyComplete
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\obj\Release\Solution_Framework_Kardex.dll
+C:\Users\Usuario\Documents\Cristian's stuffs\LONDRA 13-12-2022\Solution_Framework_Kardex\obj\Release\Solution_Framework_Kardex.pdb

@@ -1,0 +1,179 @@
+﻿/* Estilo global */
+body {
+    height: 0% !important;
+}
+
+/* Estilos para los notify */
+.alert {
+    z-index: 1076 !important;
+}
+
+/* Estilos para los tooltip */
+.tooltip {
+    z-index: 1074 !important;
+}
+
+/* Estilos para el radiobutton */
+.custom-radio table {
+    width: 100% !important;
+}
+
+/* Estilos para el checkbutton */
+.custom-checkbox table {
+    width: 100% !important;
+}
+
+/* Estilos para los gridview */
+.table {
+    width: 100% !important;
+}
+
+/* Estilos para los modales */
+@media (min-height: 576px) {
+    .modal-lg-kcpb {
+        max-width: 1000px;
+    }
+}
+
+@media (min-height: 576px) {
+    .modal-lg-kcpbxl {
+        max-width: 1200px;
+    }
+}
+
+/* Estilos para los input[type="number"] */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Estilos checkbox en treeview */
+.treeView td input[type="checkbox"] {
+    float: left !important;
+}
+
+/* Estilos Card - Header */
+.card-header {
+    border-radius: .4375rem;
+}
+
+/* Estilos para el grupo de botones en la grilla */
+.dropdown-menu2 {
+    min-width: 0;
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+    .dropdown-menu2 .dropdown-item {
+        margin-bottom: 2.5px;
+    }
+
+/* Estilos botones flotantes */
+.sticky-top-btn2 {
+    position: -webkit-sticky;
+    position: fixed !important;
+    z-index: 1020;
+    bottom: 140px;
+    right: 30px;
+}
+
+/* Otros estilos referentes a la grilla */
+.badge-danger2 {
+    padding: 15px;
+    color: #fff;
+    background-color: rgba(255, 0, 52, .65);
+}
+
+.badge-warning2 {
+    padding: 15px;
+    color: #fff;
+    background-color: rgba(255, 50, 0, .5);
+}
+
+/* Estilos componentes para calendario de horarios */
+.calendar-asp {
+    width: 100%;
+}
+
+    .calendar-asp th {
+        padding: 5px;
+        font-size: .95rem;
+        background-color: #d2e3ee;
+        border: 1.25px solid #fff !important;
+    }
+
+    .calendar-asp td {
+        width: 12.57%;
+        height: 100px;
+        background-color: rgba(0,0,0,.025);
+    }
+
+        .calendar-asp td:first-child {
+            width: 12%;
+            font-size: .9rem;
+            font-weight: bold;
+            background-color: rgba(210, 214, 222, 0.5);
+            border: 1.25px solid #fff !important;
+        }
+
+            .calendar-asp td:first-child a {
+                pointer-events: none;
+            }
+
+.data-day {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+
+    .data-day a {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+.table-bordered2 {
+    border: 1.25px solid #cad1d7;
+}
+
+    .table-bordered2 > thead > tr > th, .table-bordered2 > tbody > tr > th, .table-bordered2 > tfoot > tr > th, .table-bordered2 > thead > tr > td, .table-bordered2 > tbody > tr > td, .table-bordered2 > tfoot > tr > td {
+        border: 1.25px solid #cad1d7;
+    }
+
+    .table-bordered2 > thead > tr {
+        background-color: #cad1d7;
+    }
+
+        .table-bordered2 > thead > tr > th {
+            border: 1.25px solid #fff !important;
+        }
+
+.sub-calendar-asp {
+    width: 100%;
+}
+
+    .sub-calendar-asp th {
+        font-size: .85rem;
+        background-color: none;
+    }
+
+    .sub-calendar-asp td {
+        width: 50%;
+        height: 30px;
+        font-size: .85rem;
+        background-color: #f3f3f3;
+        border: 1.25px solid #cad1d7 !important;
+    }
+
+        .sub-calendar-asp td:first-child {
+            width: 50%;
+            font-size: .85rem;
+            font-weight: normal;
+            background-color: #f3f3f3;
+            border: 1.25px solid #cad1d7 !important;
+        }

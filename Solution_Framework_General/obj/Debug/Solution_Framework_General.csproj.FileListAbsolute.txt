@@ -1,0 +1,68 @@
+D:\Repositorio_SIGRH3\SIGRH3\SIGRH\Bin\Solution_Framework_General.dll
+D:\Repositorio_SIGRH3\SIGRH3\SIGRH\Bin\Solution_Framework_General.pdb
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CoreCompileInputs.cache
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CopyComplete
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.dll
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.pdb
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_General.dll
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_General.pdb
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.AssemblyReference.cache
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CoreCompileInputs.cache
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CopyComplete
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.dll
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_General.dll
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_General.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CoreCompileInputs.cache
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CopyComplete
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.dll
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.AssemblyReference.cache
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_General.dll
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_General.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CoreCompileInputs.cache
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CopyComplete
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.dll
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_General\obj\Debug\Solution_Framework_General.pdb
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\SIGRH\Bin\Solution_Framework_General.dll
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\SIGRH\Bin\Solution_Framework_General.pdb
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CoreCompileInputs.cache
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.dll
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.pdb
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.AssemblyReference.cache
+D:\Prueba\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_General.dll
+D:\Prueba\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_General.pdb
+D:\Prueba\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_General.dll.CodeAnalysisLog.xml
+D:\Prueba\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_General.dll.lastcodeanalysissucceeded
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.AssemblyReference.cache
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CoreCompileInputs.cache
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CopyComplete
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.dll
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.pdb
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_General.dll
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_General.pdb
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.AssemblyReference.cache
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CoreCompileInputs.cache
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CopyComplete
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.dll
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.pdb
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_General.dll
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_General.pdb
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CoreCompileInputs.cache
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CopyComplete
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.dll
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.pdb
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.AssemblyReference.cache
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_General.dll
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_General.pdb
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CoreCompileInputs.cache
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CopyComplete
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.dll
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.pdb
+C:\Users\Angela Lopez\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_General.dll
+C:\Users\Angela Lopez\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_General.pdb
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.AssemblyReference.cache
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.csproj.CoreCompileInputs.cache
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_General\obj\Debug\Solution.4B6496F4.Up2Date
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.dll
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_General\obj\Debug\Solution_Framework_General.pdb

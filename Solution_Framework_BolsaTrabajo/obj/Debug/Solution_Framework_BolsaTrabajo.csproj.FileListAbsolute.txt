@@ -1,0 +1,66 @@
+D:\Repositorio_SIGRH3\SIGRH3\SIGRH\Bin\Solution_Framework_BolsaTrabajo.dll
+D:\Repositorio_SIGRH3\SIGRH3\SIGRH\Bin\Solution_Framework_BolsaTrabajo.pdb
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CoreCompileInputs.cache
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CopyComplete
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.dll
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.pdb
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_BolsaTrabajo.dll
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_BolsaTrabajo.pdb
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CoreCompileInputs.cache
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CopyComplete
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.dll
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_BolsaTrabajo.dll
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_BolsaTrabajo.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CoreCompileInputs.cache
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CopyComplete
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.dll
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.AssemblyReference.cache
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_BolsaTrabajo.dll
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_BolsaTrabajo.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CoreCompileInputs.cache
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CopyComplete
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.dll
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.pdb
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\SIGRH\Bin\Solution_Framework_BolsaTrabajo.dll
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\SIGRH\Bin\Solution_Framework_BolsaTrabajo.pdb
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CoreCompileInputs.cache
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.dll
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.pdb
+D:\Prueba\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_BolsaTrabajo.dll
+D:\Prueba\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_BolsaTrabajo.pdb
+D:\Prueba\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_BolsaTrabajo.dll.CodeAnalysisLog.xml
+D:\Prueba\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_BolsaTrabajo.dll.lastcodeanalysissucceeded
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.AssemblyReference.cache
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CoreCompileInputs.cache
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CopyComplete
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.dll
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.pdb
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_BolsaTrabajo.dll
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_BolsaTrabajo.pdb
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.AssemblyReference.cache
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CoreCompileInputs.cache
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CopyComplete
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.dll
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.pdb
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_BolsaTrabajo.dll
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_BolsaTrabajo.pdb
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CoreCompileInputs.cache
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CopyComplete
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.dll
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.pdb
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.AssemblyReference.cache
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_BolsaTrabajo.dll
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_BolsaTrabajo.pdb
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CoreCompileInputs.cache
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CopyComplete
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.dll
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.pdb
+C:\Users\Angela Lopez\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_BolsaTrabajo.dll
+C:\Users\Angela Lopez\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_BolsaTrabajo.pdb
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.AssemblyReference.cache
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.csproj.CoreCompileInputs.cache
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution.143C833B.Up2Date
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.dll
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_BolsaTrabajo\obj\Debug\Solution_Framework_BolsaTrabajo.pdb

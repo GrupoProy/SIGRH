@@ -1,0 +1,5 @@
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_Cheques\obj\Debug\netcoreapp3.1\Solution_Framework_Cheques.csproj.AssemblyReference.cache
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_Cheques\obj\Debug\netcoreapp3.1\Solution_Framework_Cheques.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_Cheques\obj\Debug\netcoreapp3.1\Solution_Framework_Cheques.AssemblyInfoInputs.cache
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_Cheques\obj\Debug\netcoreapp3.1\Solution_Framework_Cheques.AssemblyInfo.cs
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_Cheques\obj\Debug\netcoreapp3.1\Solution_Framework_Cheques.csproj.CoreCompileInputs.cache

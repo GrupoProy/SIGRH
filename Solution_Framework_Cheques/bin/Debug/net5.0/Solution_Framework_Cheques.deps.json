@@ -1,0 +1,95 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Solution_Framework_Cheques/1.0.0": {
+        "dependencies": {
+          "Microsoft.Practices.EnterpriseLibrary.Common": "2.0.0.0",
+          "Microsoft.Practices.EnterpriseLibrary.Configuration.Design": "2.0.0.0",
+          "Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Design": "2.0.0.0",
+          "Microsoft.Practices.EnterpriseLibrary.Data": "2.0.0.0",
+          "Microsoft.Practices.ObjectBuilder": "1.0.51205.0"
+        },
+        "runtime": {
+          "Solution_Framework_Cheques.dll": {}
+        }
+      },
+      "Microsoft.Practices.EnterpriseLibrary.Common/2.0.0.0": {
+        "runtime": {
+          "Microsoft.Practices.EnterpriseLibrary.Common.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "Microsoft.Practices.EnterpriseLibrary.Configuration.Design/2.0.0.0": {
+        "runtime": {
+          "Microsoft.Practices.EnterpriseLibrary.Configuration.Design.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Design/2.0.0.0": {
+        "runtime": {
+          "Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Design.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "Microsoft.Practices.EnterpriseLibrary.Data/2.0.0.0": {
+        "runtime": {
+          "Microsoft.Practices.EnterpriseLibrary.Data.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "Microsoft.Practices.ObjectBuilder/1.0.51205.0": {
+        "runtime": {
+          "Microsoft.Practices.ObjectBuilder.dll": {
+            "assemblyVersion": "1.0.51205.0",
+            "fileVersion": "1.0.51205.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Solution_Framework_Cheques/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Practices.EnterpriseLibrary.Common/2.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Practices.EnterpriseLibrary.Configuration.Design/2.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Design/2.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Practices.EnterpriseLibrary.Data/2.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Practices.ObjectBuilder/1.0.51205.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

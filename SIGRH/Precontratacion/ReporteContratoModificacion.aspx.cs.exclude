@@ -1,0 +1,302 @@
+﻿using Solution_Framework_ControlPersonal.BussinessLogicLayer;
+using Solution_Framework_MovimientoPersonal.BussinessLogicLayer;
+using Solution_Framework_General.BussinessLogicLayer;
+using System;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+
+public partial class Precontrataciones_ReporteContratoModificacion : System.Web.UI.Page
+{
+    string connectionString = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+    private cls_persona _persona = null;
+    private cls_catalogo _catalogo = null;
+    private cls_persona_domicilio _domicilio = null;
+    private int nuevoContratoId = 0;
+    private int perId = 0;
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!Page.IsPostBack)
+        {
+            if (Request.QueryString["id"] != null && Request.QueryString["perId"] != null)
+            {
+                try
+                {
+                    nuevoContratoId = Convert.ToInt32(Request.QueryString["id"]);
+                    perId = Convert.ToInt32(Request.QueryString["perId"]);
+
+                    if (nuevoContratoId > 0 && perId > 0)
+                    {
+                        CargarDatosPersonales(perId);
+                        CargarDatosContrato(nuevoContratoId);
+                        CargarDatosModificacion();
+                    }
+                    else
+                    {
+                        Response.Redirect("ListaSolicitudes.aspx");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("Error en Page_Load: " + ex.Message);
+                    Response.Redirect("ListaSolicitudes.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("ListaSolicitudes.aspx");
+            }
+        }
+    }
+
+    // ============================================================
+    // CARGAR DATOS PERSONALES DEL FUNCIONARIO
+    // ============================================================
+    private void CargarDatosPersonales(int per_id)
+    {
+        try
+        {
+            _persona = new cls_persona();
+            _catalogo = new cls_catalogo();
+            _domicilio = new cls_persona_domicilio();
+
+            DataSet ds = _persona.ObtenerRegistroX(per_id);
+
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+
+                ltlNombreCompleto.Text = (row["per_nombres"] != DBNull.Value ? row["per_nombres"].ToString().Trim() : "") + " " +
+                                         (row["per_ap_paterno"] != DBNull.Value ? row["per_ap_paterno"].ToString().Trim() : "") + " " +
+                                         (row["per_ap_materno"] != DBNull.Value ? row["per_ap_materno"].ToString().Trim() : "");
+
+                ltlCarnet.Text = row["per_num_doc"] != DBNull.Value ? row["per_num_doc"].ToString().Trim() : "";
+
+                if (row["per_fecha_nac"] != DBNull.Value)
+                    ltlFechaNac.Text = Convert.ToDateTime(row["per_fecha_nac"]).ToString("dd/MM/yyyy");
+                else
+                    ltlFechaNac.Text = "";
+
+                if (row["per_sexo"] != DBNull.Value)
+                {
+                    string sexo = row["per_sexo"].ToString().Trim();
+                    ltlSexo.Text = sexo == "M" ? "Masculino" : (sexo == "F" ? "Femenino" : "");
+                }
+
+                string estadoCivil = row["per_estado_civil"] != DBNull.Value ? row["per_estado_civil"].ToString().Trim() : "";
+                if (!string.IsNullOrEmpty(estadoCivil))
+                {
+                    ltlEstadoCivil.Text = ObtenerDescripcion("estado_civil", estadoCivil);
+                }
+                else
+                {
+                    ltlEstadoCivil.Text = "";
+                }
+
+                DataSet dsDomicilio = _domicilio.ObtenerTablaGrilla("", per_id.ToString(), "", "", "", "", "", "", "", "", "");
+
+                if (dsDomicilio != null && dsDomicilio.Tables.Count > 0 && dsDomicilio.Tables[0].Rows.Count > 0)
+                {
+                    DataRow rowD = dsDomicilio.Tables[0].Rows[0];
+                    string via = rowD["perd_descripcion_via"] != DBNull.Value ? rowD["perd_descripcion_via"].ToString().Trim() : "";
+                    string numero = rowD["perd_numero"] != DBNull.Value ? rowD["perd_numero"].ToString().Trim() : "";
+                    ltlDireccion.Text = via + (string.IsNullOrEmpty(numero) ? "" : " N° " + numero);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine("Error al cargar datos personales: " + ex.Message);
+        }
+    }
+
+    // ============================================================
+    // CARGAR DATOS DEL CONTRATO MODIFICADO
+    // ============================================================
+    private void CargarDatosContrato(int contratoId)
+    {
+        try
+        {
+            string query = @"
+                SELECT 
+                    a.as_id,
+                    a.as_fecha_inicio,
+                    a.as_fecha_fin,
+                    a.as_pr_id,
+                    c.ca_basico_calculado,
+                    e.es_descripcion AS cargo,
+                    ns.ns_nivel,
+                    ns.ns_clase,
+                    uo.eo_descripcion AS unidad,
+                    pd.pd_descripcion AS descripcion_puesto,
+                    pd.pd_objetivo AS objetivo,
+                    pd.pd_funciones AS funciones,
+                    g.gl_numero_doc AS cite
+                FROM tbl_mp_asignacion a
+                INNER JOIN tbl_mp_cargo c ON a.as_ca_id = c.ca_id
+                INNER JOIN tbl_mp_escala_salarial e ON c.ca_es_id = e.es_id
+                INNER JOIN tbl_mp_nivel_salarial ns ON e.es_ns_id = ns.ns_id
+                INNER JOIN tbl_mp_estructura_organizacional uo ON c.ca_eo_id = uo.eo_id
+                LEFT JOIN tbl_mp_cargo_puesto cp ON c.ca_id = cp.cap_ca_id AND cp.cap_estado = 'V'
+                LEFT JOIN tbl_puestos p ON cp.cap_p_id = p.p_id
+                LEFT JOIN tbl_mp_puesto_detalle pd ON p.p_id = pd.pd_p_id
+                LEFT JOIN tbl_glosa g ON g.gl_valor_pk = a.as_id AND g.gl_tipo_mov = 814
+                WHERE a.as_id = @as_id";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@as_id", contratoId);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Cargo
+                            ltlCargo.Text = reader["cargo"] != DBNull.Value ? reader["cargo"].ToString() : "";
+
+                            // Sueldo
+                            if (reader["ca_basico_calculado"] != DBNull.Value)
+                            {
+                                ltlSueldo.Text = Convert.ToDecimal(reader["ca_basico_calculado"]).ToString("N2");
+                            }
+                            else
+                            {
+                                ltlSueldo.Text = "0.00";
+                            }
+
+                            // Fecha de Inicio
+                            if (reader["as_fecha_inicio"] != DBNull.Value)
+                            {
+                                ltlFechaInicio.Text = Convert.ToDateTime(reader["as_fecha_inicio"]).ToString("dd/MM/yyyy");
+                            }
+
+                            // Fecha de Fin
+                            if (reader["as_fecha_fin"] != DBNull.Value)
+                            {
+                                ltlFechaFin.Text = Convert.ToDateTime(reader["as_fecha_fin"]).ToString("dd/MM/yyyy");
+                            }
+
+                            // Nivel
+                            ltlNivel.Text = reader["ns_nivel"] != DBNull.Value ? reader["ns_nivel"].ToString() : "";
+
+                            // Clase
+                            ltlClase.Text = reader["ns_clase"] != DBNull.Value ? reader["ns_clase"].ToString() : "";
+
+                            // Unidad
+                            ltlUnidad.Text = reader["unidad"] != DBNull.Value ? reader["unidad"].ToString() : "";
+
+                            // CITE
+                            ltlCITE.Text = reader["cite"] != DBNull.Value ? reader["cite"].ToString() : "";
+
+                            // Descripción del Puesto
+                            ltlDescripcionPuesto.Text = reader["descripcion_puesto"] != DBNull.Value ? reader["descripcion_puesto"].ToString() : "";
+
+                            // Objetivo
+                            ltlObjetivo.Text = reader["objetivo"] != DBNull.Value ? reader["objetivo"].ToString() : "";
+
+                            // Funciones
+                            ltlFunciones.Text = reader["funciones"] != DBNull.Value ? reader["funciones"].ToString() : "";
+                        }
+                        else
+                        {
+                            // Si no se encuentra el contrato, mostrar mensaje
+                            ltlCargo.Text = "CONTRATO NO ENCONTRADO";
+                            Response.Redirect("ListaSolicitudes.aspx");
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine("Error al cargar datos del contrato: " + ex.Message);
+            ltlCargo.Text = "ERROR AL CARGAR DATOS";
+        }
+    }
+
+    // ============================================================
+    // CARGAR DATOS DE LA MODIFICACIÓN
+    // ============================================================
+    private void CargarDatosModificacion()
+    {
+        try
+        {
+            ltlFechaModificacion.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+
+            if (Session["per_id"] != null)
+            {
+                try
+                {
+                    int usuarioId = Convert.ToInt32(Session["per_id"]);
+                    string query = @"
+                        SELECT CONCAT(
+                            ISNULL(per_nombres, ''), ' ', 
+                            ISNULL(per_ap_paterno, ''), ' ', 
+                            ISNULL(per_ap_materno, '')
+                        ) AS nombre
+                        FROM tbl_persona
+                        WHERE per_id = @per_id";
+
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@per_id", usuarioId);
+                            object result = cmd.ExecuteScalar();
+                            if (result != null && !string.IsNullOrEmpty(result.ToString()))
+                            {
+                                ltlUsuario.Text = result.ToString().Trim();
+                            }
+                            else
+                            {
+                                ltlUsuario.Text = "Usuario Desconocido";
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("Error al obtener usuario: " + ex.Message);
+                    ltlUsuario.Text = "Error al obtener usuario";
+                }
+            }
+            else
+            {
+                ltlUsuario.Text = "Usuario No Identificado";
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine("Error al cargar datos de modificación: " + ex.Message);
+            ltlFechaModificacion.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            ltlUsuario.Text = "Error al obtener datos";
+        }
+    }
+
+    // ============================================================
+    // OBTENER DESCRIPCIÓN DE CATÁLOGO
+    // ============================================================
+    private string ObtenerDescripcion(string tabla, string id)
+    {
+        if (string.IsNullOrEmpty(id) || id == "0") return "";
+
+        try
+        {
+            cls_catalogo catalogo = new cls_catalogo { cat_tabla = tabla };
+            DataSet ds = catalogo.ObtenerTablaCombo();
+
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                DataRow[] rows = ds.Tables[0].Select("cat_id = " + id);
+                if (rows.Length > 0) return rows[0]["cat_descripcion"].ToString();
+            }
+            return id;
+        }
+        catch { return id; }
+    }
+}

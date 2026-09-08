@@ -1,0 +1,40 @@
+C:\Users\eduardo.burgoa\Documents\ALCALDIA\2019\ACTUALIZACION SIEV\SIGRH3\SIGRH3\SIGRH\Bin\Solution_Framework_Evaluacion.dll
+C:\Users\eduardo.burgoa\Documents\ALCALDIA\2019\ACTUALIZACION SIEV\SIGRH3\SIGRH3\SIGRH\Bin\Solution_Framework_Evaluacion.pdb
+C:\Users\eduardo.burgoa\Documents\ALCALDIA\2019\ACTUALIZACION SIEV\SIGRH3\SIGRH3\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.dll
+C:\Users\eduardo.burgoa\Documents\ALCALDIA\2019\ACTUALIZACION SIEV\SIGRH3\SIGRH3\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.pdb
+C:\Users\eduardo.burgoa\Documents\ALCALDIA\2019\ACTUALIZACION SIEV\SIGRH3\SIGRH3\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.csprojResolveAssemblyReference.cache
+D:\evaluacion de desempeño\15 marzo\pruebafinal\SIGRH\Bin\Solution_Framework_Evaluacion.dll
+D:\evaluacion de desempeño\15 marzo\pruebafinal\SIGRH\Bin\Solution_Framework_Evaluacion.pdb
+D:\evaluacion de desempeño\15 marzo\pruebafinal\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.dll
+D:\evaluacion de desempeño\15 marzo\pruebafinal\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.pdb
+D:\Repositorio_SIGRH3\SIGRH3\SIGRH\Bin\Solution_Framework_Evaluacion.dll
+D:\Repositorio_SIGRH3\SIGRH3\SIGRH\Bin\Solution_Framework_Evaluacion.pdb
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.csprojAssemblyReference.cache
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.csproj.CoreCompileInputs.cache
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.csproj.CopyComplete
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.dll
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.pdb
+D:\UAP_MP\SIGRH3\SIGRH\Bin\Solution_Framework_Evaluacion.dll
+D:\UAP_MP\SIGRH3\SIGRH\Bin\Solution_Framework_Evaluacion.pdb
+D:\UAP_MP\SIGRH3\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.csprojResolveAssemblyReference.cache
+D:\UAP_MP\SIGRH3\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.dll
+D:\UAP_MP\SIGRH3\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.pdb
+D:\UAP_SIEV\SIGRH3\SIGRH\Bin\Solution_Framework_Evaluacion.dll
+D:\UAP_SIEV\SIGRH3\SIGRH\Bin\Solution_Framework_Evaluacion.pdb
+D:\UAP_SIEV\SIGRH3\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.dll
+D:\UAP_SIEV\SIGRH3\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.pdb
+D:\UAP_SIEV\SIGRH3\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.csprojResolveAssemblyReference.cache
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Evaluacion.dll
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Evaluacion.pdb
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.csproj.AssemblyReference.cache
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.csproj.CoreCompileInputs.cache
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.csproj.CopyComplete
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.dll
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.pdb
+C:\Users\Angela Lopez\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Evaluacion.dll
+C:\Users\Angela Lopez\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Evaluacion.pdb
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.csproj.AssemblyReference.cache
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.csproj.CoreCompileInputs.cache
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_Evaluacion\obj\Debug\Solution.4A5E59A1.Up2Date
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.dll
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_Evaluacion\obj\Debug\Solution_Framework_Evaluacion.pdb

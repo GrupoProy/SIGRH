@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "98UK+rA0KMLsfNHj21FP4oirVpCVY7q6QQN2qQJVgInjakkPw0rCMW7DIDRDl071mu0Uzh3HPGFfk0pkK6MjVw==",
+  "success": true,
+  "projectFilePath": "D:\\Prueba\\LONDRA_11_AGOSTO_2022\\Solution_Framework_Cheques\\Solution_Framework_Cheques.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ricardo Ayala\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ricardo Ayala\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ricardo Ayala\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

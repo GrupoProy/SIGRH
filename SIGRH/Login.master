@@ -1,0 +1,145 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Login.master.cs" Inherits="Login" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=11">
+    <meta name="author" content="JJ">
+    <title>SISTEMA RRHH</title>
+    <!-- Favicon -->
+    <link rel="icon" href="Content/img/brand/favicon1.png" type="image/png">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <%--<link rel="stylesheet" href="Content/vendor/font/fonty.css?family=Open+Sans:300,400,600,700" >--%>
+    <!-- Icons -->
+    <link rel="stylesheet" href="Content/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="Content/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+    <!-- Page plugins -->
+
+    <link rel="stylesheet" href="Content/vendor/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="Content//vendor/animate.css/animate.min.css">
+    <link rel="stylesheet" href="Content/vendor/quill/dist/quill.snow.css">
+
+    <link rel="stylesheet" href="Content/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="Content/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="Content/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css">
+    <!-- Argon CSS -->
+    <link rel="stylesheet" href="Content/css/argon.min.css?v=1.0.0" type="text/css">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #load {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: 9999;
+            background: url("./../Content/img/loader9.gif") no-repeat 50% 50% rgba(255,255,255,0.4);
+        }
+
+        .load {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: 9999;
+            background: url("./../Content/img/loader9.gif") no-repeat 50% 50% rgba(255,255,255,0.4);
+        }
+        .page-header {
+                min-height: 115vh;
+    max-height: 999px;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+        }
+        .blog-post .page-header .container {
+            padding-top:0;
+        }
+    </style>
+    <!-- Argon Scripts -->
+    <!-- Core -->
+    <script src="<%= ResolveUrl("Content/vendor/jquery/dist/jquery.min.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/bootstrap/dist/js/bootstrap.bundle.min.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/js-cookie/js.cookie.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/jquery.scrollbar/jquery.scrollbar.min.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/lavalamp/js/jquery.lavalamp.min.js") %>"></script>
+    <!-- Optional JS -->
+    <script src="<%= ResolveUrl("Content/vendor/chart.js/dist/Chart.min.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/chart.js/dist/Chart.extension.js" ) %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/select2/dist/js/select2.min.js") %>"></script>
+
+    <script src="<%= ResolveUrl("Content/vendor/datatables.net/js/jquery.dataTables.min.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/datatables.net-buttons/js/dataTables.buttons.min.js") %>"></script>
+
+    <script src="<%= ResolveUrl("Content/vendor/datatables.net-buttons/js/buttons.html5.min.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/datatables.net-buttons/js/buttons.flash.min.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/datatables.net-buttons/js/buttons.print.min.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/datatables.net-select/js/dataTables.select.min.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/bootstrap-notify/bootstrap-notify.min.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/quill/dist/quill.min.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/quill/dist/image-resize.min.js") %>"></script>
+    <script src="<%= ResolveUrl("Content/vendor/pen/pen.js") %>"></script>
+
+    <script>
+        //document.onreadystatechange = function () {
+        //    setTimeout(function () {
+        //        document.getElementById('load').style.display = 'none';
+        //    }, 0);
+        //}
+
+        //function MostrarMascara(pValor) {
+        //    if (pValor) {
+        //        $('#load').css({ display: 'block' })
+        //    } else {
+        //        $('#load').css({ display: 'none' })
+        //    }
+        //}
+        //window.history.forward (1); 
+        localStorage.clear()
+        function goBack() {
+            window.history.back();
+            console.log("atras");
+        }
+    </script>
+</head>
+
+<body class="blog-post">
+    <form id="form2" runat="server">
+        <asp:ScriptManager runat="server" ID="ScriptManager1" />
+<%--        <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent headroom">
+            <div class="container">
+                <a class="navbar-brand mr-lg-5 avatar avatar-xl-2" style="background-color: #FED700;" href="#">
+                    <img src="Content/img/logo_uap.jpg">
+                </a>
+            </div>
+        </nav>--%>
+        <!-- Main content -->
+        <div class="wrapper">
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!-- Argon JS -->
+        <script src="<%= ResolveUrl("Content/js/argon.min.js?v=1.0.0") %>"></script>
+        <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+            <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+        </div>
+        <!-- Demo JS - remove this in your project -->
+        <script src="<%= ResolveUrl("Content/js/demo.min.js") %>"></script>
+        <script src="<%= ResolveUrl("Content/js/Scripts.js") %>"></script>
+
+    </form>
+</body>
+</html>

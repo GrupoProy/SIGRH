@@ -1,0 +1,58 @@
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_ManualPuestos\bin\Debug\Solution_Framework_ManualPuestos.dll
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_ManualPuestos\bin\Debug\Solution_Framework_ManualPuestos.pdb
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_ManualPuestos\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_ManualPuestos\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_ManualPuestos\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Repositorio_SIGRH3\SIGRH3\SIGRH\Bin\Solution_Framework_ManualPuestos.dll
+D:\Repositorio_SIGRH3\SIGRH3\SIGRH\Bin\Solution_Framework_ManualPuestos.pdb
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.CoreCompileInputs.cache
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.CopyComplete
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.dll
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.pdb
+D:\UAP_MP\SIGRH3\SIGRH\Bin\Solution_Framework_ManualPuestos.dll
+D:\UAP_MP\SIGRH3\SIGRH\Bin\Solution_Framework_ManualPuestos.pdb
+D:\UAP_MP\SIGRH3\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.dll
+D:\UAP_MP\SIGRH3\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.pdb
+D:\UAP_MP\SIGRH3\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csprojResolveAssemblyReference.cache
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_ManualPuestos.dll
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_ManualPuestos.pdb
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.AssemblyReference.cache
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.CoreCompileInputs.cache
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.CopyComplete
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.dll
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.pdb
+C:\Users\Usuario\Documents\Cristian's stuffs\Nueva carpeta (2)\LONDRA 26_06_2023\SIGRH\Bin\Solution_Framework_ManualPuestos.dll
+C:\Users\Usuario\Documents\Cristian's stuffs\Nueva carpeta (2)\LONDRA 26_06_2023\SIGRH\Bin\Solution_Framework_ManualPuestos.pdb
+C:\Users\Usuario\Documents\Cristian's stuffs\Nueva carpeta (2)\LONDRA 26_06_2023\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\Cristian's stuffs\Nueva carpeta (2)\LONDRA 26_06_2023\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\Cristian's stuffs\Nueva carpeta (2)\LONDRA 26_06_2023\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.CopyComplete
+C:\Users\Usuario\Documents\Cristian's stuffs\Nueva carpeta (2)\LONDRA 26_06_2023\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.dll
+C:\Users\Usuario\Documents\Cristian's stuffs\Nueva carpeta (2)\LONDRA 26_06_2023\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.pdb
+C:\Users\Personal\Desktop\LONDRA BUG\Prueba\LONDRA 26_06_2023\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.AssemblyReference.cache
+C:\Users\Personal\Desktop\LONDRA BUG\Prueba\LONDRA 26_06_2023\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.CoreCompileInputs.cache
+C:\Users\Personal\Desktop\LONDRA BUG\Prueba\LONDRA 26_06_2023\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.dll
+C:\Users\Personal\Desktop\LONDRA BUG\Prueba\LONDRA 26_06_2023\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.pdb
+C:\Users\Personal\Desktop\LONDRA BUG\Prueba\LONDRA 26_06_2023\SIGRH\Bin\Solution_Framework_ManualPuestos.dll
+C:\Users\Personal\Desktop\LONDRA BUG\Prueba\LONDRA 26_06_2023\SIGRH\Bin\Solution_Framework_ManualPuestos.pdb
+C:\Users\Personal\Desktop\LONDRA BUG\Prueba\LONDRA 26_06_2023\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.CopyComplete
+C:\Users\Personal\Desktop\LONDRA BUG\SB1\LONDRA 26_06_2023\SIGRH\Bin\Solution_Framework_ManualPuestos.dll
+C:\Users\Personal\Desktop\LONDRA BUG\SB1\LONDRA 26_06_2023\SIGRH\Bin\Solution_Framework_ManualPuestos.pdb
+C:\Users\Personal\Desktop\LONDRA BUG\SB1\LONDRA 26_06_2023\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.AssemblyReference.cache
+C:\Users\Personal\Desktop\LONDRA BUG\SB1\LONDRA 26_06_2023\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.CoreCompileInputs.cache
+C:\Users\Personal\Desktop\LONDRA BUG\SB1\LONDRA 26_06_2023\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.CopyComplete
+C:\Users\Personal\Desktop\LONDRA BUG\SB1\LONDRA 26_06_2023\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.dll
+C:\Users\Personal\Desktop\LONDRA BUG\SB1\LONDRA 26_06_2023\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.pdb
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_ManualPuestos.dll
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_ManualPuestos.pdb
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.AssemblyReference.cache
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.CoreCompileInputs.cache
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.CopyComplete
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.dll
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.pdb
+C:\Users\Angela Lopez\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_ManualPuestos.dll
+C:\Users\Angela Lopez\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_ManualPuestos.pdb
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.AssemblyReference.cache
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.csproj.CoreCompileInputs.cache
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_ManualPuestos\obj\Debug\Solution.CF785741.Up2Date
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.dll
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_ManualPuestos\obj\Debug\Solution_Framework_ManualPuestos.pdb

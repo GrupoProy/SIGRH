@@ -1,0 +1,65 @@
+D:\Repositorio_SIGRH3\SIGRH3\SIGRH\Bin\Solution_Framework_Salarios.dll
+D:\Repositorio_SIGRH3\SIGRH3\SIGRH\Bin\Solution_Framework_Salarios.pdb
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CoreCompileInputs.cache
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CopyComplete
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.dll
+D:\Repositorio_SIGRH3\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.pdb
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_Salarios.dll
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_Salarios.pdb
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CoreCompileInputs.cache
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CopyComplete
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.dll
+D:\SIGRH3_11052021\ORIGINAL\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_Salarios.dll
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_Salarios.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.AssemblyReference.cache
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CoreCompileInputs.cache
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CopyComplete
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.dll
+D:\USERS\PL_STV\Desktop\COBIJA\ORIGINAL\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_Salarios.dll
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\SIGRH\Bin\Solution_Framework_Salarios.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CoreCompileInputs.cache
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CopyComplete
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.dll
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.pdb
+D:\USERS\PL_STV\Desktop\COBIJA\v2\ORIGINAL\SIGRH3\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.AssemblyReference.cache
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\SIGRH\Bin\Solution_Framework_Salarios.dll
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\SIGRH\Bin\Solution_Framework_Salarios.pdb
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CoreCompileInputs.cache
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.dll
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.pdb
+C:\Users\Eisen\Downloads\LONDRA_15_FEBRERO_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.AssemblyReference.cache
+D:\Prueba\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_Salarios.dll
+D:\Prueba\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_Salarios.pdb
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.AssemblyReference.cache
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CoreCompileInputs.cache
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CopyComplete
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.dll
+D:\Prueba\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.pdb
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_Salarios.dll
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\SIGRH\Bin\Solution_Framework_Salarios.pdb
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CoreCompileInputs.cache
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CopyComplete
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.dll
+D:\Modulos Londra\Londra 21_SEPTIEMBRE_2022\LONDRA_11_AGOSTO_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.pdb
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Salarios.dll
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Salarios.pdb
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CoreCompileInputs.cache
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CopyComplete
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.dll
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.pdb
+D:\Pasar a la Nueva Maquina\Copias Londra\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.AssemblyReference.cache
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Salarios.dll
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Salarios.pdb
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CoreCompileInputs.cache
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CopyComplete
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.dll
+F:\WAYRA SOLUCIONES\software rrhh\Londra Local Kevin\LONDRA 18_11_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.pdb
+C:\Users\Angela Lopez\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Salarios.dll
+C:\Users\Angela Lopez\LONDRA 18_11_2022\SIGRH\Bin\Solution_Framework_Salarios.pdb
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.AssemblyReference.cache
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.csproj.CoreCompileInputs.cache
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_Salarios\obj\Debug\Solution.F00DB1A7.Up2Date
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.dll
+C:\Users\Angela Lopez\LONDRA 18_11_2022\Solution_Framework_Salarios\obj\Debug\Solution_Framework_Salarios.pdb
