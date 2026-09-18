@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Solution_Framework_General.BussinessLogicLayer
 {
-    /// <summary>
+     
 	/// Proporciona funcionalidad para manejo de tbl_catalogo.
-	/// </summary>
+	 
 	public class cls_catalogo
     {
         #region PROPIEDADES
@@ -28,9 +28,9 @@ namespace Solution_Framework_General.BussinessLogicLayer
         #endregion
 
         #region METODOS
-        /// <summary>
+         
         /// Método que adiciona una nuevo registro en tbl_catalogo
-        /// </summary>
+         
         public bool Adicionar(string cat_tabla, string cat_descripcion, string cat_abreviacion, string id_superior)
         {
             DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
@@ -42,36 +42,36 @@ namespace Solution_Framework_General.BussinessLogicLayer
             return DBLayer.AdicionarCatalogoSecuencial(this);
         }
 
-        /// <summary>
+         
         /// Método que actualiza datos en la tabla tbl_catalogo
-        /// </summary>
+         
         public bool Actualizar()
         {
             DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
             return DBLayer.Actualizar__catalogo(this);
         }
 
-        /// <summary>
+         
         /// Método que elimina datos en la tabla tbl_catalogo
-        /// </summary>
+         
         public bool Eliminar()
         {
             DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
             return DBLayer.Eliminar__catalogo(this);
         }
 
-        /// <summary>
+         
         /// Método que obtiene ID para registros de tbl_catalogo
-        /// </summary>
+         
         public bool ObtenerId()
         {
             DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
             return DBLayer.ObtenerId__catalogo(this);
         }
 
-        /// <summary>
+         
         /// Método que obtiene un registro de tbl_catalogo
-        /// </summary>
+         
         /// <param name="cat_id">
         /// Clave primaria de la tabla _catalogo
         /// </param>
@@ -82,9 +82,9 @@ namespace Solution_Framework_General.BussinessLogicLayer
             return DBLayer.ObtenerRegistro__catalogo(this);
         }
 
-        /// <summary>
+         
         /// Método que obtiene la tabla tbl_catalogo para llenar una grilla
-        /// </summary>
+         
         /// <param name="cat_id">
         /// (Campo opcional) Introducir espacio vacio
         /// </param>
@@ -125,9 +125,9 @@ namespace Solution_Framework_General.BussinessLogicLayer
             return DBLayer.ObtenerTablaGrilla__catalogo(p_cat_id, p_cat_tabla, p_cat_secuencial, p_cat_secuencial_op, p_cat_descripcion, p_cat_descripcion_op, p_cat_abreviacion, p_cat_id_superior, p_cat_adicional, p_cat_estado);
         }
 
-        /// <summary>
+         
         /// Método que obtiene la tabla tbl_catalgo para llenar un combo
-        /// </summary>
+         
         public DataSet ObtenerTablaCombo()
         {
             DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
@@ -193,6 +193,28 @@ namespace Solution_Framework_General.BussinessLogicLayer
             }
             return (modo, control);
         }
+        #endregion
+
+        #region CATÁLOGOS POR TABLA Y JERARQUÍA
+
+         
+        /// Obtiene los catálogos activos de una tabla específica (ej: 'departamento', 'tipo_via').
+         
+        public DataSet ObtenerCatalogoPorTabla(string cat_tabla)
+        {
+            DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
+            return DBLayer.ObtenerCatalogoPorTabla(cat_tabla);
+        }
+
+         
+        /// Obtiene los catálogos activos de una tabla filtrando por cat_id_superior.
+         
+        public DataSet ObtenerCatalogoPorTablaYSuperior(string cat_tabla, int cat_id_superior)
+        {
+            DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
+            return DBLayer.ObtenerCatalogoPorTablaYSuperior(cat_tabla, cat_id_superior);
+        }
+
         #endregion
     }
 }

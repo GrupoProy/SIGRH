@@ -1,11 +1,12 @@
-using Solution_Framework_General.BussinessLogicLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
- 
+using System.Data.SqlClient;    // ⬅️ Para SqlConnection, SqlCommand, SqlDataAdapter
+using System.Configuration;     // ⬅️ Para ConfigurationManager
 using System.Text;
 using System.Threading.Tasks;
+using Solution_Framework_General.BussinessLogicLayer;
 
 namespace Solution_Framework_General.DataAccessLayer
 {
@@ -800,7 +801,7 @@ namespace Solution_Framework_General.DataAccessLayer
         //NUEVO AUXILIAR
         private (string modo, string control) ExtraerModoControl(string catAdicional)
         {
-            string modo = "D";       // por defecto, d�as
+            string modo = "D";       // por defecto, días
             string control = "NINGUNO";
 
             if (!string.IsNullOrWhiteSpace(catAdicional))
@@ -938,6 +939,88 @@ namespace Solution_Framework_General.DataAccessLayer
                 throw ex;
             }
         }
+        #endregion
+
+        #region CATÁLOGOS POR TABLA Y JERARQUÍA
+
+        /// <summary>
+        /// Obtiene los catálogos activos de una tabla específica, ordenados por cat_secuencial.
+        /// Ejemplo: cat_tabla = 'departamento' → devuelve todos los departamentos.
+        /// </summary>
+        public DataSet ObtenerCatalogoPorTabla(string cat_tabla)
+        {
+            DataSet ds = new DataSet();
+            string query = @"
+        SELECT 
+            cat_id,
+            cat_tabla,
+            cat_secuencial,
+            cat_descripcion,
+            cat_abreviacion,
+            cat_estado,
+            cat_id_superior,
+            cat_adicional
+        FROM tbl_catalogo
+        WHERE cat_tabla = @cat_tabla 
+          AND cat_estado = 'V'
+        ORDER BY cat_secuencial ASC";
+
+            // ⚠️ AJUSTA la cadena de conexión si tu tabla catálogo está en otra BD
+            // Como la tabla es [General].dbo.tbl_catalogo, usa la cadena que apunte a "General"
+            string connStr = ConfigurationManager.ConnectionStrings["CnxGeneral"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@cat_tabla", cat_tabla);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(ds);
+                }
+            }
+            return ds;
+        }
+
+        /// <summary>
+        /// Obtiene los catálogos activos de una tabla específica filtrando por cat_id_superior.
+        /// Ejemplo: cat_tabla = 'provincia' AND cat_id_superior = 20 → provincias del depto 20.
+        /// </summary>
+        public DataSet ObtenerCatalogoPorTablaYSuperior(string cat_tabla, int cat_id_superior)
+        {
+            DataSet ds = new DataSet();
+            string query = @"
+        SELECT 
+            cat_id,
+            cat_tabla,
+            cat_secuencial,
+            cat_descripcion,
+            cat_abreviacion,
+            cat_estado,
+            cat_id_superior,
+            cat_adicional
+        FROM tbl_catalogo
+        WHERE cat_tabla = @cat_tabla 
+          AND cat_estado = 'V'
+          AND cat_id_superior = @cat_id_superior
+        ORDER BY cat_secuencial ASC";
+
+            string connStr = ConfigurationManager.ConnectionStrings["CnxGeneral"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@cat_tabla", cat_tabla);
+                    cmd.Parameters.AddWithValue("@cat_id_superior", cat_id_superior);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(ds);
+                }
+            }
+            return ds;
+        }
+
         #endregion
     }
 }

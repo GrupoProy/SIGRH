@@ -37,6 +37,8 @@ namespace Solution_Framework_MovimientoPersonal.BussinessLogicLayer
         public string perd_estado { get; set; }
         public int perd_usuario_creacion { get; set; }
         public string perd_fecha_creacion { get; set; }
+        public int perd_usuario_modificacion { get; set; }
+        public DateTime? perd_ultima_modificacion { get; set; }
         #endregion
 
         #region METODOS
@@ -151,10 +153,35 @@ namespace Solution_Framework_MovimientoPersonal.BussinessLogicLayer
             DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
             return DBLayer.ObtenerDatosFile(this);
         }
+
+        /// <summary>
+        /// /
+        /// </summary>
+        /// <param name="file_id_cod"></param>
+        /// <returns></returns>
+        /// 
+
+        public DataSet ObtenerDomicilioVigentePorPerId(int per_id)
+        {
+            DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
+            return DBLayer.ObtenerDomicilioVigentePorPerId(per_id);
+        }
         public DataSet VerificarExisteFile(int file_id_cod)
         {
             DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
             return DBLayer.VerificarExisteFile(file_id_cod);
+        }
+
+        public bool ActualizarLibretaMilitar(int per_id, string num_libreta)
+        {
+            DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
+            return DBLayer.ActualizarLibretaMilitar(per_id, num_libreta);
+        }
+
+        public bool ActualizarTodosLosCampos()
+        {
+            DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
+            return DBLayer.ActualizarTodosLosCampos_Domicilio(this);
         }
         public bool ActualizarTelefonosFun()
         {

@@ -8,9 +8,9 @@ using Solution_Framework_Kardex.DataAccessLayer;
 
 namespace Solution_Framework_Kardex.BussinessLogicLayer
 {
-	/// <summary>
+
 	/// Proporciona funcionalidad para manejo de tbl_kd_respuesta_combo.
-	/// </summary>
+	
 	public class cls_kd_respuesta_combo
 	{
 
@@ -51,49 +51,53 @@ namespace Solution_Framework_Kardex.BussinessLogicLayer
         public string ef_fecha_titulo_obtenido { get; set; }
         public string ef_nro_titulo { get; set; }
         public int ef_estado { get; set; }
-
+        public string ef_descripcion { get; set; }
+        public int ef_usuario_creacion { get; set; }
+        public DateTime? ef_fecha_creacion { get; set; }
+        public int ef_usuario_modificacion { get; set; }
+        public DateTime? ef_fecha_modificacion { get; set; }
         #endregion
 
         #region METODOS
-        /// <summary>
+        
         /// Método que adiciona una nuevo registro en tbl_kd_respuesta_combo
-        /// </summary>
+        
         public bool Adicionar()
 		{
 			DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
 			return DBLayer.Adicionar__kd_respuesta_combo(this);
 		}
 
-		/// <summary>
+		
 		/// Método que actualiza datos en la tabla tbl_kd_respuesta_combo
-		/// </summary>
+		
 		public bool Actualizar()
 		{
 			DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
 			return DBLayer.Actualizar__kd_respuesta_combo(this);
 		}
 
-		/// <summary>
+		
 		/// Método que elimina datos en la tabla tbl_kd_respuesta_combo
-		/// </summary>
+		
 		public bool Eliminar()
 		{
 			DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
 			return DBLayer.Eliminar__kd_respuesta_combo(this);
 		}
 
-		/// <summary>
+		
 		/// Método que obtiene ID para registros de tbl_kd_respuesta_combo
-		/// </summary>
+		
 		public bool ObtenerId()
 		{
 			DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
 			return DBLayer.ObtenerId__kd_respuesta_combo(this);
 		}
 
-		/// <summary>
+		 
 		/// Método que obtiene un registro de tbl_kd_respuesta_combo
-		/// </summary>
+		 
 		/// <param name="rc_id">
 		/// Clave primaria de la tabla _kd_respuesta_combo
 		/// </param>
@@ -104,9 +108,9 @@ namespace Solution_Framework_Kardex.BussinessLogicLayer
 			return DBLayer.ObtenerRegistro__kd_respuesta_combo(this);
 		}
 
-		/// <summary>
+		 
 		/// Método que obtiene la tabla tbl_kd_respuesta_combo para llenar una grilla
-		/// </summary>
+		 
 		/// <param name="rc_id">
 		/// (Campo opcional) Introducir espacio vacio
 		/// </param>
@@ -141,9 +145,9 @@ namespace Solution_Framework_Kardex.BussinessLogicLayer
 			return DBLayer.ObtenerTablaGrilla__kd_respuesta_combo(rc_id, rc_rq_id, rc_desc, rc_equivalencia, rc_estado, rc_usuario_creacion, rc_fecha_creacion);
 		}
 
-		/// <summary>
+		 
 		/// Método que obtiene la tabla tbl_kd_respuesta_combo para llenar un combo
-		/// </summary>
+		 
 		public DataSet ObtenerTablaCombo()
 		{
 			DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
@@ -260,6 +264,55 @@ namespace Solution_Framework_Kardex.BussinessLogicLayer
             DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
             return DBLayer.EliminarTmp_ReporteFiliacion();
         }
+
+        
+
+         
+        /// Registra una nueva formación académica (acción A1).
+         
+        public bool RegistrarFormacionKardex()
+        {
+            DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
+            return DBLayer.RegistrarFormacionKardex(this);
+        }
+
+         
+        /// Actualiza una formación existente (acción C25).
+         
+        public bool ActualizarFormacionKardex()
+        {
+            DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
+            return DBLayer.ActualizarFormacionKardex(this);
+        }
+
+         
+        /// Elimina lógicamente una formación (acción C22).
+         
+        public bool EliminarFormacionKardex(int ef_id, int usuario_modificacion)
+        {
+            DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
+            return DBLayer.EliminarFormacionKardex(ef_id, usuario_modificacion);
+        }
+
+         
+        /// Obtiene la grilla de educación formal (acción C10).
+         
+        public DataSet ObtenerGrillaEducacionFormal(int per_id)
+        {
+            DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
+            return DBLayer.ObtenerGrillaEducacionFormal(per_id);
+        }
+
+         
+        /// Obtiene una formación por ID (acción C21).
+         
+        public DataSet ObtenerFormacionXKardex(int ef_id, int ef_per_id)
+        {
+            DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
+            return DBLayer.ObtenerFormacionXKardex(ef_id, ef_per_id);
+        }
+
+        
         #endregion
     }
 }
