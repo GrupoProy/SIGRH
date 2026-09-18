@@ -66,6 +66,7 @@
       <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -81,8 +82,12 @@
     <Compile Include="BussinessLogicLayer\cls_glosa.cs" />
     <Compile Include="BussinessLogicLayer\cls_grado_academico.cs" />
     <Compile Include="BussinessLogicLayer\cls_historico.cs" />
+    <Compile Include="BussinessLogicLayer\cls_paginador.cs" />
     <Compile Include="BussinessLogicLayer\cls_periodo.cs" />
     <Compile Include="BussinessLogicLayer\cls_pla_proceso.cs" />
+    <Compile Include="BussinessLogicLayer\cls_select2_helper.cs" />
+    <Compile Include="BussinessLogicLayer\cls_validador.cs" />
+    <Compile Include="BussinessLogicLayer\ValidationException.cs" />
     <Compile Include="DataAccessLayer\DataAccessLayerDataAccessLayer.cs" />
     <Compile Include="DataAccessLayer\DataAccessLayerSQLDataAccessLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37411.7 d17.14
+VisualStudioVersion = 17.14.37411.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SIGRH", "SIGRH\", "{884D4356-C5D5-4F02-AB9B-2C909336FAD4}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -10,7 +10,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SIGRH", "SIGRH\", "{884D435
 		SccLocalPath = "SAK"
 		SccProvider = "SAK"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
-		ProjectReferences = ""
+		ProjectReferences = "{169fcfdd-1351-4f05-a481-d222da13881c}|Solution_Framework_Kardex.dll;{425ee0c0-bfbe-4d17-bd02-83629ede4108}|Solution_Framework_General.dll;{ea076d89-a6ea-4b49-ad2f-70d43a16f3df}|Solution_Framework_MovimientoPersonal.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_54022"
 		Debug.AspNetCompiler.PhysicalPath = "SIGRH\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54022\"
