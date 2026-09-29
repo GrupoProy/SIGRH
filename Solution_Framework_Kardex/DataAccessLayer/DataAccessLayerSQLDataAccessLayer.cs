@@ -1,11 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Data.Common;
+﻿using System;
+//using System.Collections.Generic;
 using System.Data;
-
-using Solution_Framework_Kardex.BussinessLogicLayer;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Text;
+using Solution_Framework_Kardex.BussinessLogicLayer; 
 using Solution_Framework_Kardex.DataAccessLayer;
+//using solution_Framework_MovimientoPersonal.BussinessLogicLayer;
 
 namespace Solution_Framework_Kardex.BussinessLogicLayer
 {
@@ -2143,8 +2145,8 @@ namespace Solution_Framework_Kardex.BussinessLogicLayer
                 CNXSIGRH3.AddInParameter(icom, "p_cv_ga_id", DbType.Int32, _cv_formacion.cv_ga_id);
                 CNXSIGRH3.AddInParameter(icom, "p_cv_inst_id", DbType.String, _cv_formacion.cv_inst_id);
                 CNXSIGRH3.AddInParameter(icom, "p_cv_carr_id", DbType.String, _cv_formacion.cv_carr_id);
-                CNXSIGRH3.AddInParameter(icom, "p_cv_form_a�o_inicio", DbType.Int32, _cv_formacion.cv_form_a�o_inicio);
-                CNXSIGRH3.AddInParameter(icom, "p_cv_form_a�o_fin", DbType.Int32, _cv_formacion.cv_form_a�o_fin);
+                CNXSIGRH3.AddInParameter(icom, "p_cv_form_año_inicio", DbType.Int32, _cv_formacion.cv_form_año_inicio);
+                CNXSIGRH3.AddInParameter(icom, "p_cv_form_año_fin", DbType.Int32, _cv_formacion.cv_form_año_fin);
                 CNXSIGRH3.AddInParameter(icom, "p_cv_form_prov_nal", DbType.String, _cv_formacion.cv_form_prov_nal);
                 CNXSIGRH3.AddInParameter(icom, "p_cv_form_estado", DbType.String, _cv_formacion.cv_form_estado);
                 CNXSIGRH3.AddInParameter(icom, "p_cv_form_per_id", DbType.String, _cv_formacion.cv_form_per_id);
@@ -2389,9 +2391,9 @@ namespace Solution_Framework_Kardex.BussinessLogicLayer
                 CNXSIGRH3.AddInParameter(icom, "p_cv_exp_area_esp", DbType.String, area);
                 CNXSIGRH3.AddInParameter(icom, "p_cv_exp_ultimo_cargo", DbType.String, ultimo_cargo);
                 CNXSIGRH3.AddInParameter(icom, "p_cv_exp_mes_inicio", DbType.Int32, mes_inicio);
-                CNXSIGRH3.AddInParameter(icom, "p_cv_exp_a�o_inicio", DbType.Int32, gestion_inicio);
+                CNXSIGRH3.AddInParameter(icom, "p_cv_exp_año_inicio", DbType.Int32, gestion_inicio);
                 CNXSIGRH3.AddInParameter(icom, "p_cv_exp_mes_fin", DbType.Int32, mes_fin);
-                CNXSIGRH3.AddInParameter(icom, "p_cv_exp_a�o_fin", DbType.Int32, gestion_fin);
+                CNXSIGRH3.AddInParameter(icom, "p_cv_exp_año_fin", DbType.Int32, gestion_fin);
                 CNXSIGRH3.AddInParameter(icom, "p_cv_exp_estado", DbType.String, estado);
                 CNXSIGRH3.AddInParameter(icom, "p_cv_exp_per_id", DbType.Int32, per_id);
 
@@ -3511,7 +3513,418 @@ string per_estado_civil)
         }
         #endregion
 
+        #region GESTIÓN ACTUAL DESDE SERVIDOR
 
+        /// <summary>
+        /// Obtiene el año (gestión) actual desde el servidor de base de datos.
+        /// Ejecuta: SELECT YEAR(GETDATE())
+        /// </summary>
+        public int ObtenerGestionActualDesdeServidor()
+        {
+            int gestion = DateTime.Now.Year; // Fallback por si falla
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("SELECT YEAR(GETDATE())", conn))
+                    {
+                        conn.Open();
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            gestion = Convert.ToInt32(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error ObtenerGestionActualDesdeServidor: " + ex.Message);
+                // Retorna el año del cliente como fallback
+            }
+
+            return gestion;
+        }
+
+        #endregion
+
+        #region EDUCACION FORMAL - KARDEX
+
+        /// <summary>
+        /// Registra una nueva formación (acción A1).
+        /// </summary>
+        public bool RegistrarFormacionKardex(cls_kd_respuesta_combo formacion)
+        {
+            bool resultado = false;
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_kd_respuesta_combo", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_ef_per_id", formacion.ef_per_id);
+                        cmd.Parameters.AddWithValue("@p_ef_nivel_instruccion", formacion.ef_nivel_instruccion);
+                        cmd.Parameters.AddWithValue("@p_ef_centro_form", (object)formacion.ef_centro_form ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_ef_carrera_especialidad", (object)formacion.ef_carrera_especialidad ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_ef_fecha_ini", string.IsNullOrEmpty(formacion.ef_fecha_ini) ? (object)DBNull.Value : Convert.ToDateTime(formacion.ef_fecha_ini));
+                        cmd.Parameters.AddWithValue("@p_ef_fecha_fin", string.IsNullOrEmpty(formacion.ef_fecha_fin) ? (object)DBNull.Value : Convert.ToDateTime(formacion.ef_fecha_fin));
+                        cmd.Parameters.AddWithValue("@p_ef_anios_estudio", (object)formacion.ef_anios_estudio ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_ef_titulo_obtenido", (object)formacion.ef_titulo_obtenido ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_ef_fecha_titulo_obtenido", string.IsNullOrEmpty(formacion.ef_fecha_titulo_obtenido) ? (object)DBNull.Value : Convert.ToDateTime(formacion.ef_fecha_titulo_obtenido));
+                        cmd.Parameters.AddWithValue("@p_ef_nro_titulo", (object)formacion.ef_nro_titulo ?? DBNull.Value);
+
+                        // ✅ NUEVOS PARÁMETROS
+                        cmd.Parameters.AddWithValue("@p_ef_descripcion", (object)formacion.ef_descripcion ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_ef_usuario_creacion", formacion.ef_usuario_creacion);
+                        cmd.Parameters.AddWithValue("@p_ef_fecha_creacion", DateTime.Now);
+
+                        cmd.Parameters.AddWithValue("@p_accion", "A1");
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        resultado = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error RegistrarFormacionKardex: " + ex.Message);
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+        /// <summary>
+        /// Actualiza una formación (acción C25).
+        /// </summary>
+        public bool ActualizarFormacionKardex(cls_kd_respuesta_combo formacion)
+        {
+            bool resultado = false;
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_kd_respuesta_combo", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_ef_id", formacion.ef_id);
+                        cmd.Parameters.AddWithValue("@p_ef_per_id", formacion.ef_per_id);
+                        cmd.Parameters.AddWithValue("@p_ef_nivel_instruccion", formacion.ef_nivel_instruccion);
+                        cmd.Parameters.AddWithValue("@p_ef_centro_form", (object)formacion.ef_centro_form ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_ef_carrera_especialidad", (object)formacion.ef_carrera_especialidad ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_ef_fecha_ini", string.IsNullOrEmpty(formacion.ef_fecha_ini) ? (object)DBNull.Value : Convert.ToDateTime(formacion.ef_fecha_ini));
+                        cmd.Parameters.AddWithValue("@p_ef_fecha_fin", string.IsNullOrEmpty(formacion.ef_fecha_fin) ? (object)DBNull.Value : Convert.ToDateTime(formacion.ef_fecha_fin));
+                        cmd.Parameters.AddWithValue("@p_ef_anios_estudio", (object)formacion.ef_anios_estudio ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_ef_titulo_obtenido", (object)formacion.ef_titulo_obtenido ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_ef_fecha_titulo_obtenido", string.IsNullOrEmpty(formacion.ef_fecha_titulo_obtenido) ? (object)DBNull.Value : Convert.ToDateTime(formacion.ef_fecha_titulo_obtenido));
+                        cmd.Parameters.AddWithValue("@p_ef_nro_titulo", (object)formacion.ef_nro_titulo ?? DBNull.Value);
+
+                        // ✅ NUEVOS PARÁMETROS
+                        cmd.Parameters.AddWithValue("@p_ef_descripcion", (object)formacion.ef_descripcion ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_ef_usuario_modificacion", formacion.ef_usuario_modificacion);
+                        cmd.Parameters.AddWithValue("@p_ef_fecha_modificacion", DateTime.Now);
+
+                        cmd.Parameters.AddWithValue("@p_accion", "C25");
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        resultado = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error ActualizarFormacionKardex: " + ex.Message);
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+        /// <summary>
+        /// Elimina lógicamente una formación (acción C22).
+        /// </summary>
+        public bool EliminarFormacionKardex(int ef_id, int usuario_modificacion)
+        {
+            bool resultado = false;
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_kd_respuesta_combo", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_ef_id", ef_id);
+                        cmd.Parameters.AddWithValue("@p_ef_usuario_modificacion", usuario_modificacion);
+                        cmd.Parameters.AddWithValue("@p_ef_fecha_modificacion", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@p_accion", "C22");
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        resultado = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error EliminarFormacionKardex: " + ex.Message);
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+        /// <summary>
+        /// Obtiene la grilla de educación formal (acción C10).
+        /// </summary>
+        public DataSet ObtenerGrillaEducacionFormal(int per_id)
+        {
+            DataSet ds = new DataSet();
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_kd_respuesta_combo", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@p_rp_valor_pk", per_id);
+                    cmd.Parameters.AddWithValue("@p_accion", "C10");
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(ds);
+                }
+            }
+            return ds;
+        }
+
+        /// <summary>
+        /// Obtiene una formación por ID (acción C21).
+        /// </summary>
+        public DataSet ObtenerFormacionXKardex(int ef_id, int ef_per_id)
+        {
+            DataSet ds = new DataSet();
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_kd_respuesta_combo", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@p_ef_id", ef_id);
+                    cmd.Parameters.AddWithValue("@p_ef_per_id", ef_per_id);
+                    cmd.Parameters.AddWithValue("@p_accion", "C21");
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(ds);
+                }
+            }
+            return ds;
+        }
+
+        #endregion
+
+        #region DOBLE PERCEPCIÓN - KARDEX
+
+        /// <summary>
+        /// Registra una nueva doble percepción (acción 'A').
+        /// </summary>
+        public bool Adicionar_DoblePercepcion(cls_doblepercepcion dp)
+        {
+            bool resultado = false;
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_doblepercepcion", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_dp_per_id", dp.dp_per_id);
+                        cmd.Parameters.AddWithValue("@p_dp_docente", dp.dp_docente);
+                        cmd.Parameters.AddWithValue("@p_dp_universidad", (object)dp.dp_universidad ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_total_ganado_mes", (object)dp.dp_total_ganado_mes ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_aguinaldo", (object)dp.dp_aguinaldo ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_otros_ingresos", (object)dp.dp_otros_ingresos ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_horario", (object)dp.dp_horario ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_total_horas", (object)dp.dp_total_horas ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_fecha_ini", (object)dp.dp_fecha_ini ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_fecha_fin", (object)dp.dp_fecha_fin ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_numero_materias", (object)dp.dp_numero_materias ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_materias", (object)dp.dp_materias ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_tipo_jornada", (object)dp.dp_tipo_jornada ?? DBNull.Value);
+
+                        // ✅ NUEVOS
+                        cmd.Parameters.AddWithValue("@p_dp_dj_id", (object)dp.dp_dj_id ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_usuario_creacion", dp.dp_usuario_creacion);
+                        cmd.Parameters.AddWithValue("@p_dp_fecha_creacion", DateTime.Now);
+
+                        cmd.Parameters.AddWithValue("@p_accion", "A");
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        resultado = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error Adicionar_DoblePercepcion: " + ex.Message);
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+        /// <summary>
+        /// Actualiza una doble percepción (acción 'C').
+        /// </summary>
+        public bool Actualizar_DoblePercepcion(cls_doblepercepcion dp)
+        {
+            bool resultado = false;
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_doblepercepcion", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_dp_id", dp.dp_id);
+                        cmd.Parameters.AddWithValue("@p_dp_docente", dp.dp_docente);
+                        cmd.Parameters.AddWithValue("@p_dp_universidad", (object)dp.dp_universidad ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_total_ganado_mes", (object)dp.dp_total_ganado_mes ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_aguinaldo", (object)dp.dp_aguinaldo ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_otros_ingresos", (object)dp.dp_otros_ingresos ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_horario", (object)dp.dp_horario ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_total_horas", (object)dp.dp_total_horas ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_fecha_ini", (object)dp.dp_fecha_ini ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_fecha_fin", (object)dp.dp_fecha_fin ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_numero_materias", (object)dp.dp_numero_materias ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_materias", (object)dp.dp_materias ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_tipo_jornada", (object)dp.dp_tipo_jornada ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_dp_estado", "V");
+
+                        // ✅ NUEVOS
+                        cmd.Parameters.AddWithValue("@p_dp_usuario_modificacion", dp.dp_usuario_modificacion);
+                        cmd.Parameters.AddWithValue("@p_dp_fecha_modificacion", DateTime.Now);
+
+                        cmd.Parameters.AddWithValue("@p_accion", "C");
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        resultado = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error Actualizar_DoblePercepcion: " + ex.Message);
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+        /// <summary>
+        /// Elimina lógicamente una doble percepción (acción 'B').
+        /// </summary>
+        public bool Eliminar_DoblePercepcion(int dp_id, int usuario_modificacion)
+        {
+            bool resultado = false;
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_doblepercepcion", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@p_dp_id", dp_id);
+                        cmd.Parameters.AddWithValue("@p_dp_usuario_modificacion", usuario_modificacion);
+                        cmd.Parameters.AddWithValue("@p_dp_fecha_modificacion", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@p_accion", "B");
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        resultado = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error Eliminar_DoblePercepcion: " + ex.Message);
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+        /// <summary>
+        /// Obtiene la grilla de doble percepción (acción 'C1').
+        /// </summary>
+        public DataSet ObtenerGrillaDoblePercepcion(int per_id)
+        {
+            DataSet ds = new DataSet();
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_doblepercepcion", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@p_dp_per_id", per_id);
+                    cmd.Parameters.AddWithValue("@p_accion", "C1");
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(ds);
+                }
+            }
+            return ds;
+        }
+
+        /// <summary>
+        /// Obtiene un registro por ID (acción 'C3').
+        /// </summary>
+        public DataSet ObtenerDoblePercepcionX(int dp_id)
+        {
+            DataSet ds = new DataSet();
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_doblepercepcion", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@p_dp_id", dp_id);
+                    cmd.Parameters.AddWithValue("@p_accion", "C3");
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(ds);
+                }
+            }
+            return ds;
+        }
+
+        #endregion
         public override DataSet OBTENERGRIDASGINACIONES(cls_kd_asignacion_vacaciones _kd_asignacion_vacaciones, int nro)
         {
             try
@@ -3530,6 +3943,396 @@ string per_estado_civil)
                 throw ex;
             }
         }
+
+        //#region FILIACIÓN - DECLARACIÓN JURADA
+        public bool ExisteDeclaracionJurada(int persona_id, int gestion)
+        {
+            bool existe = false;
+            string query = @"
+                SELECT COUNT(1) 
+                FROM tbl_declaracion_jurada 
+                WHERE dj_persona_id = @persona_id 
+                AND dj_gestion = @gestion 
+                AND dj_estado = 'V'";
+
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString))
+            //using (SqlConnection conn = new SqlConnection(connStr))
+
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@persona_id", persona_id);
+                    cmd.Parameters.AddWithValue("@gestion", gestion);
+
+                    conn.Open();
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    existe = count > 0;
+                }
+            }
+            return existe;
+        }
+
+        
+        /// Adiciona una nueva declaración jurada. 
+        /// Retorna true si tuvo éxito. Captura el error de índice único si existe duplicado.
+       
+        public bool Adicionar_DeclaracionJurada(cls_declaracion_jurada declaracion)
+        {
+            bool resultado = false;
+            string query = @"
+        INSERT INTO tbl_declaracion_jurada (
+            dj_persona_id,
+            dj_fecha_inicio,
+            dj_fecha_fin,
+            dj_gestion,
+            dj_estado,
+            dj_usuario,
+            dj_fecha_creacion,
+            dj_usuario_modificacion,
+            dj_fecha_modificacion
+        ) VALUES (
+            @dj_persona_id,
+            @dj_fecha_inicio,
+            @dj_fecha_fin,
+            @dj_gestion,
+            @dj_estado,
+            @dj_usuario,
+            @dj_fecha_creacion,
+            @dj_usuario_modificacion,
+            GETDATE()  
+        );
+        SELECT SCOPE_IDENTITY();";
+
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@dj_persona_id", declaracion.dj_persona_id);
+                    cmd.Parameters.AddWithValue("@dj_fecha_inicio", declaracion.dj_fecha_inicio);
+
+                    if (declaracion.dj_fecha_fin.HasValue)
+                        cmd.Parameters.AddWithValue("@dj_fecha_fin", declaracion.dj_fecha_fin.Value);
+                    else
+                        cmd.Parameters.AddWithValue("@dj_fecha_fin", DBNull.Value);
+
+                    cmd.Parameters.AddWithValue("@dj_gestion", declaracion.dj_gestion);
+                    cmd.Parameters.AddWithValue("@dj_estado", declaracion.dj_estado);
+                    cmd.Parameters.AddWithValue("@dj_usuario", declaracion.dj_usuario);
+                    cmd.Parameters.AddWithValue("@dj_fecha_creacion", declaracion.dj_fecha_creacion);
+                    if (declaracion.dj_usuario_modificacion.HasValue)
+                        cmd.Parameters.AddWithValue("@dj_usuario_modificacion", declaracion.dj_usuario_modificacion.Value);
+                    else
+                        cmd.Parameters.AddWithValue("@dj_usuario_modificacion", DBNull.Value);
+                    try
+                    {
+                        conn.Open();
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            declaracion.dj_id = Convert.ToInt32(result);
+                            resultado = true;
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        // ✅ CAPTURA EL ERROR DEL ÍNDICE ÚNICO (2601 o 2627)
+                        // 2601 = Violación de índice único
+                        // 2627 = Violación de restricción UNIQUE
+                        if (ex.Number == 2601 || ex.Number == 2627)
+                        {
+                            throw new Exception(
+                                "Ya existe una declaración jurada vigente para esta gestión. " +
+                                "No se puede crear otra.");
+                        }
+                        throw; // Otros errores SQL se propagan normalmente
+                    }
+                }
+            }
+            return resultado;
+        }
+
+        /// Obtiene la declaración jurada activa de un funcionario
+        
+        public DataSet ObtenerDeclaracionJuradaActiva(int persona_id)
+        {
+            DataSet ds = new DataSet();
+            string query = @"
+        SELECT 
+            dj_id,
+            dj_persona_id,
+            dj_fecha_inicio,
+            dj_fecha_fin,
+            dj_gestion,
+            dj_estado,
+            dj_usuario,
+            dj_fecha_creacion
+        FROM tbl_declaracion_jurada
+        WHERE dj_persona_id = @persona_id 
+        AND dj_estado = 'V'
+        ORDER BY dj_fecha_creacion DESC";
+
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@persona_id", persona_id);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(ds);
+                }
+            }
+
+            return ds;
+        }
+
+        /// Finaliza una declaración jurada
+        public bool FinalizarDeclaracionJurada(int dj_id, int usuario_modificacion)
+        {
+            bool resultado = false;
+            string query = @"
+        UPDATE tbl_declaracion_jurada
+        SET dj_estado = 'F',
+            dj_fecha_fin = GETDATE(),
+            dj_usuario_modificacion = @usuario_modificacion,
+            dj_fecha_modificacion = GETDATE()
+        WHERE dj_id = @dj_id";
+
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@dj_id", dj_id);
+                    cmd.Parameters.AddWithValue("@usuario_modificacion", usuario_modificacion);
+
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    resultado = rowsAffected > 0;
+                    conn.Close();
+                }
+            }
+
+            return resultado;
+        }
+        /// Obtiene el estado ('V'=Vigente, 'F'=Finalizada) y el ID de la declaración
+        /// jurada para una persona y gestión específicas.
+        /// Devuelve null si no existe ninguna declaración.
+  
+        public DataSet ObtenerEstadoDeclaracionPorGestion(int persona_id, int gestion)
+        {
+            DataSet ds = new DataSet();
+            string query = @"
+        SELECT TOP 1
+            dj_id,
+            dj_estado,
+            dj_fecha_inicio,
+            dj_fecha_fin,
+            dj_usuario
+        FROM tbl_declaracion_jurada
+        WHERE dj_persona_id = @persona_id 
+          AND dj_gestion = @gestion
+        ORDER BY 
+            CASE WHEN dj_estado = 'V' THEN 0 ELSE 1 END,
+            dj_fecha_creacion DESC";
+
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@persona_id", persona_id);
+                    cmd.Parameters.AddWithValue("@gestion", gestion);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(ds);
+                }
+            }
+            return ds;
+        }
+        //#endregion
+        #region ADM FILIACIÓN - DECLARACIÓN JURADA
+
+
+        /// Busca personas con su ÚLTIMA Declaración Jurada (por gestión más reciente)
+        /// y devuelve el estado como texto: 'Vigente' o 'Finalizado'.
+        public DataSet BuscarPersonasConDDJJ(string nombre, string apPaterno, string apMaterno,
+                                              string ci, string perId)
+        {
+            DataSet ds = new DataSet();
+
+            string query = @"
+        WITH UltimaDDJJ AS (
+            SELECT 
+                dj_id,
+                dj_persona_id,
+                dj_gestion,
+                dj_estado,
+                dj_fecha_inicio,
+                dj_fecha_fin,
+                ROW_NUMBER() OVER (
+                    PARTITION BY dj_persona_id 
+                    ORDER BY dj_gestion DESC, dj_id DESC
+                ) AS rn
+            FROM sigrh3.dbo.tbl_declaracion_jurada
+        )
+        SELECT 
+            p.per_id,
+            p.per_nombres AS nombre,
+            COALESCE(p.per_ap_paterno, '') AS apellido_paterno,
+            COALESCE(p.per_ap_materno, '') AS apellido_materno,
+            COALESCE(p.per_ap_casada, '') AS apellido_casada,
+            p.per_num_doc AS ci,
+            u.dj_id,
+            u.dj_gestion,
+            u.dj_estado,
+            CASE u.dj_estado 
+                WHEN 'V' THEN 'Vigente'
+                WHEN 'F' THEN 'Finalizado'
+                ELSE u.dj_estado
+            END AS estado_descripcion,
+            u.dj_fecha_inicio,
+            u.dj_fecha_fin
+        FROM sigrh3.dbo.tbl_persona p
+        INNER JOIN UltimaDDJJ u 
+            ON p.per_id = u.dj_persona_id 
+           AND u.rn = 1
+        WHERE 1 = 1";
+
+            // Filtros opcionales
+            if (!string.IsNullOrEmpty(nombre))
+                query += " AND p.per_nombres LIKE '%' + @nombre + '%'";
+
+            if (!string.IsNullOrEmpty(apPaterno))
+                query += " AND p.per_ap_paterno LIKE '%' + @apPaterno + '%'";
+
+            if (!string.IsNullOrEmpty(apMaterno))
+                query += " AND p.per_ap_materno LIKE '%' + @apMaterno + '%'";
+
+            if (!string.IsNullOrEmpty(ci))
+                query += " AND p.per_num_doc = @ci";
+
+            if (!string.IsNullOrEmpty(perId))
+                query += " AND p.per_id = @perId";
+
+            query += @" ORDER BY p.per_ap_paterno, p.per_ap_materno, p.per_nombres";
+
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                if (!string.IsNullOrEmpty(nombre))
+                    cmd.Parameters.AddWithValue("@nombre", nombre.Trim());
+
+                if (!string.IsNullOrEmpty(apPaterno))
+                    cmd.Parameters.AddWithValue("@apPaterno", apPaterno.Trim());
+
+                if (!string.IsNullOrEmpty(apMaterno))
+                    cmd.Parameters.AddWithValue("@apMaterno", apMaterno.Trim());
+
+                if (!string.IsNullOrEmpty(ci))
+                    cmd.Parameters.AddWithValue("@ci", ci.Trim());
+
+                if (!string.IsNullOrEmpty(perId))
+                    cmd.Parameters.AddWithValue("@perId", Convert.ToInt32(perId));
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+            }
+
+            return ds;
+        }
+
+        /// Cambia el estado de una Declaración Jurada (V → F o F → V).
+
+        public bool CambiarEstadoDeclaracionJurada(int dj_id, string nuevoEstado, int usuario_modificacion)
+        {
+            string query = @"
+        UPDATE sigrh3.dbo.tbl_declaracion_jurada
+        SET dj_estado = @estado,
+            dj_fecha_modificacion = GETDATE(),
+            dj_usuario_modificacion = @usuario,
+            dj_fecha_fin = CASE 
+                                WHEN @estado = 'F' THEN GETDATE() 
+                                ELSE NULL 
+                           END
+        WHERE dj_id = @dj_id";
+
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connStr))
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@dj_id", dj_id);
+                    cmd.Parameters.AddWithValue("@estado", nuevoEstado);
+                    cmd.Parameters.AddWithValue("@usuario", usuario_modificacion);
+
+                    conn.Open();
+                    int filas = cmd.ExecuteNonQuery();
+                    return filas > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error CambiarEstadoDeclaracionJurada: " + ex.Message);
+                return false;
+            }
+        }
+
+
+        /// Obtiene el resumen estadístico de Declaraciones Juradas:
+        /// - Total de personas activas en tbl_persona
+        /// - Cantidad de DDJJ vigentes (V)
+        /// - Cantidad de DDJJ finalizadas (F)
+        /// - Cantidad de personas que NO realizaron DDJJ
+        /// Solo considera la última DDJJ por persona (por gestión más reciente).
+
+        public DataSet ObtenerResumenDDJJ()
+        {
+            DataSet ds = new DataSet();
+
+            string query = @"
+        WITH UltimaDDJJ AS (
+            SELECT 
+                dj_persona_id,
+                dj_estado,
+                ROW_NUMBER() OVER (
+                    PARTITION BY dj_persona_id 
+                    ORDER BY dj_gestion DESC, dj_id DESC
+                ) AS rn
+            FROM sigrh3.dbo.tbl_declaracion_jurada
+        )
+        SELECT
+            (SELECT COUNT(*) FROM sigrh3.dbo.tbl_persona) AS total_personas,
+            SUM(CASE WHEN u.dj_estado = 'V' THEN 1 ELSE 0 END) AS total_vigentes,
+            SUM(CASE WHEN u.dj_estado = 'F' THEN 1 ELSE 0 END) AS total_finalizadas,
+            (SELECT COUNT(*) FROM sigrh3.dbo.tbl_persona p
+             WHERE NOT EXISTS (
+                SELECT 1 FROM UltimaDDJJ u 
+                WHERE u.dj_persona_id = p.per_id AND u.rn = 1
+             )) AS total_sin_declaracion
+        FROM UltimaDDJJ u
+        WHERE u.rn = 1";
+
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(ds);
+                }
+            }
+
+            return ds;
+        }
+
+        #endregion
 
     }
 }

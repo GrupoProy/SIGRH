@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Data.Common;
 using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.Globalization;
+using System.Configuration;
+using System.Text;
 using Solution_Framework_MovimientoPersonal.BussinessLogicLayer;
 using Solution_Framework_MovimientoPersonal.DataAccessLayer;
 
@@ -8866,6 +8868,306 @@ string per_estado_civil)
                 throw ex;
             }
         }
+        #endregion
+
+        #region PERSONA_DOMICILIO - KARDEX
+
+  
+        /// Obtiene el domicilio VIGENTE del funcionario ejecutando la acción 'R3' del SP.
+     
+        public DataSet ObtenerDomicilioVigentePorPerId(int per_id)
+        {
+            DataSet ds = new DataSet();
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_persona_domicilio", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@p_perd_per_id", per_id);
+                    cmd.Parameters.AddWithValue("@p_accion", "R3");
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(ds);
+                }
+            }
+            return ds;
+        }
+
+        /// Actualiza TODOS los campos del domicilio ejecutando la acción 'CC2' del SP.
+        /// Requiere que 'perd_id' esté cargado en el objeto.
+        public bool ActualizarTodosLosCampos_Domicilio(cls_persona_domicilio domicilio)
+        {
+            bool resultado = false;
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_persona_domicilio", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@p_perd_id", domicilio.perd_id);
+                    cmd.Parameters.AddWithValue("@p_perd_per_id", domicilio.perd_per_id);
+                    cmd.Parameters.AddWithValue("@p_perd_ciudad_residencia", (object)domicilio.perd_ciudad_residencia ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_zona", (object)domicilio.perd_zona ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_tipo_via", (object)domicilio.perd_tipo_via ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_descripcion_via", (object)domicilio.perd_descripcion_via ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_numero", (object)domicilio.perd_numero ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_edificio", (object)domicilio.perd_edificio ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_bloque", (object)domicilio.perd_bloque ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_piso", (object)domicilio.perd_piso ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_dpto", (object)domicilio.perd_dpto ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_telefono", (object)domicilio.perd_telefono ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_celular", (object)domicilio.perd_celular ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_email", (object)domicilio.perd_email ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_email_trabajo", (object)domicilio.perd_email_trabajo ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_fam_emergencia", (object)domicilio.perd_fam_emergencia ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_dir_emergencia", (object)domicilio.perd_dir_emergencia ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_tel_emergencia", (object)domicilio.perd_tel_emergencia ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_coordenadas", (object)domicilio.perd_coordenadas ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_usuario_modificacion",(object)domicilio.perd_usuario_modificacion ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@p_perd_ultima_modificacion",(object)domicilio.perd_ultima_modificacion ?? (object)DateTime.Now);
+
+                    cmd.Parameters.AddWithValue("@p_accion", "CC2");
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    resultado = true;
+                }
+            }
+            return resultado;
+        }
+
+        /// Actualiza el Nro. de Libreta Militar en tbl_persona.
+
+        public bool ActualizarLibretaMilitar(int per_id, string num_libreta)
+        {
+            bool resultado = false;
+            string query = @"
+        UPDATE tbl_persona
+        SET per_serie_libreta_militar = @num_libreta
+        WHERE per_id = @per_id";
+
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@per_id", per_id);
+                    cmd.Parameters.AddWithValue("@num_libreta",
+                        string.IsNullOrEmpty(num_libreta) ? (object)DBNull.Value : num_libreta);
+
+                    conn.Open();
+                    int rows = cmd.ExecuteNonQuery();
+                    resultado = rows > 0;
+                }
+            }
+            return resultado;
+        }
+
+        #endregion
+
+        #region PERSONA_FAMILIARES - KARDEX
+
+        /// Obtiene la grilla de familiares con el nombre del parentesco (JOIN con catálogo).
+        /// Acción 'C1' del SP.
+
+        public DataSet ObtenerGrillaFamiliaresKardex(int per_id)
+        {
+            DataSet ds = new DataSet();
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_persona_familiares", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@p_pf_per_id", per_id);
+                    cmd.Parameters.AddWithValue("@p_pf_estado", "V");
+                    cmd.Parameters.AddWithValue("@p_accion", "C1");
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(ds);
+                }
+            }
+            return ds;
+        }
+
+        /// Obtiene un familiar por ID. Acción 'C4' del SP.
+
+        public DataSet ObtenerFamiliarXKardex(int pf_id)
+        {
+            DataSet ds = new DataSet();
+            string connStr = ConfigurationManager.ConnectionStrings["SIGRH3"]?.ConnectionString
+                             ?? ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_persona_familiares", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@p_pf_id", pf_id);
+                    cmd.Parameters.AddWithValue("@p_accion", "C4");
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(ds);
+                }
+            }
+            return ds;
+        }
+
+        /// Inserta un familiar. Acción 'A1' del SP.
+
+        public bool AdicionarFamiliarKardex(cls_persona_familiares familiar)
+        {
+            bool resultado = false;
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_persona_familiares", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_pf_per_id", familiar.pf_per_id);
+                        cmd.Parameters.AddWithValue("@p_pf_tipo_parentesco", (object)familiar.pf_tipo_parentesco ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_pf_paterno", (object)familiar.pf_paterno ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_pf_materno", (object)familiar.pf_materno ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_pf_nombres", (object)familiar.pf_nombres ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_pf_ap_esposo", (object)familiar.pf_ap_esposo ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_pf_fecha_nac",
+                            string.IsNullOrEmpty(familiar.pf_fecha_nac)
+                                ? (object)DBNull.Value
+                                : Convert.ToDateTime(familiar.pf_fecha_nac));
+                        cmd.Parameters.AddWithValue("@p_pf_estado_vivo", (object)familiar.pf_estado_vivo ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_pf_fecha_defuncion",
+                            familiar.pf_fecha_defuncion == DateTime.MinValue
+                                ? (object)DBNull.Value
+                                : familiar.pf_fecha_defuncion);
+                        cmd.Parameters.AddWithValue("@p_pf_sexo", (object)familiar.pf_sexo ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_pf_ci", (object)familiar.pf_ci ?? DBNull.Value);
+
+                        // ✅ PARÁMETROS DE AUDITORÍA
+                        cmd.Parameters.AddWithValue("@p_pf_usuario_creacion", familiar.pf_usuario_creacion);
+                        cmd.Parameters.AddWithValue("@p_pf_fecha_creacion", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@p_pf_usuario_modificacion", familiar.pf_usuario_creacion);
+                        cmd.Parameters.AddWithValue("@p_pf_fecha_modificacion", DateTime.Now);
+
+                        cmd.Parameters.AddWithValue("@p_accion", "A1");
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        resultado = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error AdicionarFamiliarKardex: " + ex.Message);
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+        /// Actualiza un familiar. Acción 'C' del SP.
+
+        public bool ActualizarFamiliarKardex(cls_persona_familiares familiar)
+        {
+            bool resultado = false;
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_persona_familiares", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_pf_id", familiar.pf_id);
+                        cmd.Parameters.AddWithValue("@p_pf_per_id", familiar.pf_per_id);
+                        cmd.Parameters.AddWithValue("@p_pf_tipo_parentesco", (object)familiar.pf_tipo_parentesco ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_pf_paterno", (object)familiar.pf_paterno ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_pf_materno", (object)familiar.pf_materno ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_pf_nombres", (object)familiar.pf_nombres ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_pf_ap_esposo", (object)familiar.pf_ap_esposo ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_pf_fecha_nac",
+                            string.IsNullOrEmpty(familiar.pf_fecha_nac)
+                                ? (object)DBNull.Value
+                                : Convert.ToDateTime(familiar.pf_fecha_nac));
+                        cmd.Parameters.AddWithValue("@p_pf_estado", (object)familiar.pf_estado ?? "V");
+                        cmd.Parameters.AddWithValue("@p_pf_estado_vivo", (object)familiar.pf_estado_vivo ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_pf_fecha_defuncion",
+                            familiar.pf_fecha_defuncion == DateTime.MinValue
+                                ? (object)DBNull.Value
+                                : familiar.pf_fecha_defuncion);
+                        cmd.Parameters.AddWithValue("@p_pf_sexo", (object)familiar.pf_sexo ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@p_pf_ci", (object)familiar.pf_ci ?? DBNull.Value);
+
+                        // ✅ PARÁMETROS DE AUDITORÍA
+                        cmd.Parameters.AddWithValue("@p_pf_usuario_modificacion", familiar.pf_usuario_modificacion);
+                        cmd.Parameters.AddWithValue("@p_pf_fecha_modificacion", DateTime.Now);
+
+                        cmd.Parameters.AddWithValue("@p_accion", "C");
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        resultado = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error ActualizarFamiliarKardex: " + ex.Message);
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
+        /// Elimina lógicamente un familiar. Acción 'C5' del SP (pf_estado = 'S').
+
+        public bool EliminarFamiliarKardex(int pf_id, int usuario_modificacion)
+        {
+            bool resultado = false;
+            string connStr = ConfigurationManager.ConnectionStrings["CnxSigrh3"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_persona_familiares", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@p_pf_id", pf_id);
+
+                        // ✅ PARÁMETROS DE AUDITORÍA
+                        cmd.Parameters.AddWithValue("@p_pf_usuario_modificacion", usuario_modificacion);
+                        cmd.Parameters.AddWithValue("@p_pf_fecha_modificacion", DateTime.Now);
+
+                        cmd.Parameters.AddWithValue("@p_accion", "C5");
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        resultado = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error EliminarFamiliarKardex: " + ex.Message);
+                resultado = false;
+            }
+
+            return resultado;
+        }
+
         #endregion
     }
 }

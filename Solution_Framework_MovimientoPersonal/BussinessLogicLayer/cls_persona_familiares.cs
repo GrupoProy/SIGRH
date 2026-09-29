@@ -25,12 +25,19 @@ namespace Solution_Framework_MovimientoPersonal.BussinessLogicLayer
         public string pf_estado { get; set; }
         public string pf_estado_vivo { get; set; }
         public DateTime pf_fecha_defuncion { get; set; }
+        public string pf_sexo { get; set; }
+        public string pf_ci { get; set; }
+        // NUEVAS PROPIEDADES DE AUDITORÍA
+        public int pf_usuario_creacion { get; set; }
+        public DateTime? pf_fecha_creacion { get; set; }
+        public int pf_usuario_modificacion { get; set; }
+        public DateTime? pf_fecha_modificacion { get; set; }
         #endregion
 
         #region METODOS
-        /// <summary>
+
         /// Método que adiciona una nuevo registro en tbl_persona_familiares
-        /// </summary>
+
         public bool Adicionar()
         {
             DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
@@ -157,6 +164,54 @@ namespace Solution_Framework_MovimientoPersonal.BussinessLogicLayer
         {
             DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
             return DBLayer.ObtenerPersonaFamilarX(this);
+        }
+
+        // ═══════════════════════════════════════════════════════════════════
+        // ✅ MÉTODOS NUEVOS PARA KARDEX - DECLARACIÓN JURADA
+        // ═══════════════════════════════════════════════════════════════════
+
+        /// Obtiene la grilla de familiares con el nombre del parentesco (JOIN con catálogo).
+        /// Usa la acción 'C1' del SP.
+       
+        public DataSet ObtenerGrillaFamiliaresKardex(int per_id)
+        {
+            DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
+            return DBLayer.ObtenerGrillaFamiliaresKardex(per_id);
+        }
+
+       
+        /// Obtiene un familiar por su ID (para editar).
+        /// Usa la acción 'C4' del SP.
+       
+        public DataSet ObtenerFamiliarXKardex(int pf_id)
+        {
+            DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
+            return DBLayer.ObtenerFamiliarXKardex(pf_id);
+        }
+
+       
+        /// Inserta un familiar (con todos los campos del SP A1).
+      
+        public bool AdicionarFamiliarKardex()
+        {
+            DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
+            return DBLayer.AdicionarFamiliarKardex(this);
+        }
+
+      
+        /// Actualiza un familiar existente (acción 'C' del SP).
+        
+        public bool ActualizarFamiliarKardex()
+        {
+            DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
+            return DBLayer.ActualizarFamiliarKardex(this);
+        }
+
+        /// Elimina lógicamente un familiar (acción 'C5' del SP: pf_estado = 'S').
+        public bool EliminarFamiliarKardex(int pf_id, int usuario_modificacion)
+        {
+            DataAccessLayerSQLDataAccessLayer DBLayer = new DataAccessLayerSQLDataAccessLayer();
+            return DBLayer.EliminarFamiliarKardex(pf_id, usuario_modificacion);
         }
         #endregion
     }

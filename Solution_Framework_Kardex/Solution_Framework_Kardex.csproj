@@ -49,6 +49,7 @@
       <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -59,7 +60,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BussinessLogicLayer\cls_adm_filiacion.cs" />
     <Compile Include="BussinessLogicLayer\cls_cv_formacion.cs" />
+    <Compile Include="BussinessLogicLayer\cls_declaracion_jurada.cs" />
+    <Compile Include="BussinessLogicLayer\cls_doblepercepcion.cs" />
     <Compile Include="BussinessLogicLayer\cls_informacion.cs" />
     <Compile Include="BussinessLogicLayer\cls_kd_asignacion_vacaciones.cs" />
     <Compile Include="BussinessLogicLayer\cls_kd_certificado_sippase.cs" />
