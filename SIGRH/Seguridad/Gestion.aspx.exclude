@@ -1,0 +1,73 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageSIGRH.master" AutoEventWireup="true" CodeFile="Gestion.aspx.cs" Inherits="Seguridad_Gestion" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div class="header pb-6" style="margin-top:-4em; margin-left:3em;width:81%"> 
+        <div class="container-fluid">
+            <div class="header-body">
+                <div class="row align-items-center py-4">
+                    <div class="col-lg-6 col-7">
+                        <h6 class="h2 text-light d-inline-block mb-0">Administración de las Gestiones</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+        <div class="card">
+            <div class="card-header border-bottom">
+                <div class="ct-page-title">
+                    <p class="text-sm mb-0">Lista de gestiones vigentes e históricas</p>
+                </div>
+            </div>
+            <asp:UpdatePanel ID="Up_list" runat="server">
+                <ContentTemplate>
+                    <div class="card-body">
+                        <asp:GridView ID="GvLista" CssClass="table table-bordered table-striped table-hover" AutoGenerateColumns="false" DataKeyNames="pr_id" OnPreRender="GvLista_PreRender"  runat="server">
+                            <Columns>
+                                <asp:BoundField DataField="pr_gestion" HeaderText="Gestión" />
+                                <asp:BoundField DataField="pr_estado" HeaderText="Estado" />
+<%--                                <asp:TemplateField HeaderText="Controles" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center">
+                                    <ItemTemplate>
+                                        <asp:LinkButton CommandName="GetEdit" CommandArgument="<%# Container.DataItemIndex %>" CssClass="btn btn-warning btn-sm" Text="<span class='btn-inner--icon'><i class='fas fa-pen'></i></span>" data-toggle='tooltip' data-placement='top' title='Editar' runat="server" />
+                                        <asp:LinkButton CommandName="GetDelete" CommandArgument="<%# Container.DataItemIndex %>" CssClass="btn btn-danger btn-sm" Text="<span class='btn-inner--icon'><i class='fas fa-trash'></i></span>" data-toggle='tooltip' data-placement='top' title='Eliminar' runat="server" />
+                                        <asp:LinkButton CommandName="GetUsuarioRol" CommandArgument="<%# Container.DataItemIndex %>" CssClass="btn btn-primary btn-sm" Text="<span class='btn-inner--icon'><i class='fas fa-unlock-alt'></i></span>" data-toggle='tooltip' data-placement='top' title='Permisos' runat="server" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>--%>
+                            </Columns>
+                        </asp:GridView>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+
+        <!-- Diseño para el button nuevo registro -->
+        <div class="col-lg-6 col-5 text-right">
+            <asp:UpdatePanel runat="server">
+                <ContentTemplate>
+                    <asp:LinkButton ID="BtnNuevo" CssClass="btn btn-circle sticky-top-btn icon-prs icon-shape-prs bg-gradient-inst text-white rounded-circle shadow" Text="<i class='fas fa-plus'></i>" data-toggle="tooltip" data-original-title="Nuevo Registro" OnClick="BtnNuevo_Click" runat="server" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+
+        <div class="col-12">
+            <div class="form-group col-md-4">
+                <label class="form-control-label" for="Txt_per_nombres">Insertar Gestión</label>
+                <div class="input-group input-group-merge">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fas fa-edit"></i>
+                        </span>
+                    </div>
+                    <asp:TextBox ID="txtNuevaGestion" CssClass="form-control numeros" runat="server" />
+                </div>
+                <asp:RequiredFieldValidator CssClass="text-danger display-5" ErrorMessage="(*) Campo Obligatorio" ControlToValidate="txtNuevaGestion" ValidationGroup="edit" Display="Dynamic" runat="server" />
+            </div>
+            <div class="col-md-2">
+            <asp:LinkButton ID="btnAdicionarGestion" CssClass="btn btn-success" Text="<i class='fas fa-plus'> Adicionar</i>" data-toggle="tooltip"  runat="server" />
+            </div>
+        </div>
+    </div>
+
+</asp:Content>
+

@@ -1,0 +1,13 @@
+bin/
+obj/
+*.dll
+*.pdb
+*.exe
+*.user
+*.suo
+packages/
+.vs/
+*.cache
+*.log
+.Up2Date
+!ReportesUAP/bin/Debug/*.rdl

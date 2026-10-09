@@ -1,0 +1,691 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+ 
+using System.Text;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+using Solution_Framework_MovimientoPersonal.BussinessLogicLayer;
+using Solution_Framework_General.BussinessLogicLayer;
+
+public partial class MovimientoPersonal_Item : System.Web.UI.Page
+{
+    private cls_mp_cargo cargo = null;
+    private cls_catalogo _catalogo = null;
+    private cls_glosa glosa = null;
+    private string sc = "";
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (HttpContext.Current.Session["per_id"] != null)
+        {
+            if (HttpContext.Current.Session["per_id"].ToString() != "")
+            {
+
+                if (!Page.IsPostBack)
+                {
+                    ddl_tipo_item.Enabled = false;
+                    ddl_cargo.Enabled = false;
+                    ddl_tipo_jornada.Enabled = false;
+                    txt_cantidad.Enabled = false;
+                    listarNivelOrg();
+                    listaFiltradoTipoDoc();
+                    listaTipoJornada();
+                }
+            }
+            else
+            {
+                Response.Redirect("../index");
+            }
+        }
+        else
+        {
+            Response.Redirect("../index");
+        }
+    }
+    private void listaTipoJornada()
+    {
+        cargo = new cls_mp_cargo();
+        ddl_tipo_jornada.DataSource = cargo.ObtenerTipoJornada();
+        ddl_tipo_jornada.DataTextField = "cat_descripcion";
+        ddl_tipo_jornada.DataValueField = "cat_abreviacion";
+        ddl_tipo_jornada.DataBind();
+    }
+    private void listarNivelOrg()
+    {
+        //string gestionFiltrar = obtenerGestion();
+        try
+        {
+            cargo = new cls_mp_cargo();
+            cargo.eo_id = 0;
+            cargo.gestion_selec = Session["pr_id"].ToString();
+            var nivelOrg = cargo.ObtenerNivelOrg();
+
+            foreach (DataRow level1DataRow in nivelOrg.Tables[0].Rows)
+            {
+                string eo_id = level1DataRow["eo_id"].ToString();
+                if (eo_id != "")
+                {
+                    TreeNode treeNode = new TreeNode();
+                    treeNode.Value = level1DataRow["eo_id"].ToString();
+
+                    treeNode.Text = "<div class='d-flex align-items-center'><div><div class='badge badge-circle icon-treeview mr-2'><i class='fas fa-layer-group'></i></div></div><div><h6 class='text-sm mt-1 mb-0'>" + level1DataRow["eo_descripcion"].ToString() + "</h6></div></div>";
+                    tv_nivelOrg.Nodes.Add(treeNode);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Console.Error.Write(e.Message);
+        }
+    }
+
+    private string obtenerGestion()
+    {
+        cargo = new cls_mp_cargo();
+        string anio = DateTime.Now.ToString("yyyy");
+        cargo.gestion = anio;
+        var gestionActual = cargo.ObtenerGestion();
+
+        string gestionFiltrar = "";
+        if (gestionActual.Tables[0].Rows[0]["pr_id"] != DBNull.Value && gestionActual.Tables[0].Rows[0]["pr_id"].ToString().Trim() != "")
+        {
+            gestionFiltrar = gestionActual.Tables[0].Rows[0]["pr_id"].ToString().Trim();
+        }
+        return gestionFiltrar;
+    }
+    protected void tv_nivelOrg_SelectedNodeChanged(object sender, EventArgs e)
+    {
+        int eo_id = Convert.ToInt32(tv_nivelOrg.SelectedNode.Value);
+
+        string gestionFiltrar = Session["pr_id"].ToString();
+        cargo = new cls_mp_cargo();
+        cargo.eo_id = eo_id;
+        cargo.gestion_selec = gestionFiltrar;
+        var nivelOrg = cargo.ObtenerNivelOrg();
+        var desc_est = cargo.ObtenerDescripcionNivelOrg();
+        var nivelOrgItems = cargo.ObtenerNivelOrgItems();
+        var detalleItem = cargo.ObtenerDetalleitem();
+        //string tipo_gasto = tipoGasto.ObtenerTipoGasto(cargo.eo_id);
+        //if (tipo_gasto == "C")
+        //    panelCategoria.Enabled = false;
+        //else
+        //    panelCategoria.Enabled = true;
+
+        listaFiltradoTipoItem(eo_id);
+        listaFiltradoCargo(eo_id, gestionFiltrar);
+        //txt_cantidad.Text = string.Empty;
+
+
+        //DataRow[] level2DataRows = level1DataRow.GetChildRows("ChildRows");
+        if (desc_est.Tables[0].Rows.Count > 0)
+        {
+            if (desc_est.Tables[0].Rows[0]["eo_descripcion"] != DBNull.Value && desc_est.Tables[0].Rows[0]["eo_descripcion"].ToString().Trim() != "") { ltl_categoria.Text = desc_est.Tables[0].Rows[0]["eo_descripcion"].ToString().Trim(); }
+            if (desc_est.Tables[0].Rows[0]["cp_descripcion"] != DBNull.Value && desc_est.Tables[0].Rows[0]["cp_descripcion"].ToString().Trim() != "") { lvl_unidad_org.Text = desc_est.Tables[0].Rows[0]["cp_descripcion"].ToString().Trim(); }
+
+            //if (desc_est.Tables[0].Rows[0]["cp_tipo_gasto"] != DBNull.Value && desc_est.Tables[0].Rows[0]["cp_tipo_gasto"].ToString().Trim() != "" && desc_est.Tables[0].Rows[0]["cp_tipo_gasto"].ToString().Trim() == "K")
+            //{ divAlerta.Visible = false; divCategoria.Visible = true;
+            //    //sc = "$.notify({ icon: 'ni ni-bell-55', message: 'La creación de items de planta está restringida...'},{type: 'danger', placement: { from: 'top', align: 'right'} });";
+            //    //SetScript(sc);
+            //}
+            //else
+            //{ divCategoria.Visible = false; divAlerta.Visible = true; }
+        }
+        if (nivelOrg.Tables[0].Rows.Count > 0)
+        {
+            foreach (DataRow lvlNDataRow in nivelOrg.Tables[0].Rows)
+            {
+                TreeNode childNode = new TreeNode();
+                childNode.Value = lvlNDataRow["eo_id"].ToString();
+
+                childNode.Text = "<div class='d-flex align-items-center'><div><div class='badge badge-circle icon-treeview mr-2'><i class='fas fa-layer-group'></i></div></div><div><h6 class='text-sm mt-1 mb-0 desc-treeview'>" + lvlNDataRow["eo_descripcion"].ToString() +
+                " <small class='ls-1 mb-1 text-muted'>" + lvlNDataRow["cp_da"].ToString() + " - " + lvlNDataRow["cp_ue"].ToString() + " - " + lvlNDataRow["cp_programa"].ToString() + " - " + lvlNDataRow["cp_proyecto"].ToString() + " - " + lvlNDataRow["cp_actividad"].ToString() +
+                " (" + lvlNDataRow["cp_fuente"].ToString() + " - " + lvlNDataRow["cp_organismo"].ToString().Trim() + ")</small></h6></div></div>";
+
+                TreeNode parentNode = tv_nivelOrg.SelectedNode;
+                validarNodo(parentNode, childNode);
+            }
+        }
+        else
+        {
+            sc = "$.notify({ icon: 'ni ni-bell-55', message: 'No existe subniveles para la Unidad Organizacional seleccionada.'},{type: 'info', placement: { from: 'bottom', align: 'right'} });";
+            SetScript(sc);
+        }
+
+        foreach (DataRow lvlNDataRow in nivelOrgItems.Tables[0].Rows)
+        {
+            TreeNode childNode = new TreeNode();
+
+            if (lvlNDataRow["per_id"] != null && lvlNDataRow["per_id"].ToString() != "")
+            {
+                childNode.Value = lvlNDataRow["ca_id"].ToString();
+                childNode.Text = "<div class='d-flex align-items-center'><div><div class='badge badge-circle icon-child-treeview mr-2'><i class='fas fa-user'></i></div></div><div>" + lvlNDataRow["ca_ti_item"].ToString() + " - " + lvlNDataRow["ca_num_item"].ToString() + " CI: " + lvlNDataRow["per_num_doc"].ToString() + " " + lvlNDataRow["nombreFun"].ToString() + "</div></div>";
+
+                TreeNode parentNode = tv_nivelOrg.SelectedNode;
+                validarNodo(parentNode, childNode);
+            }
+            else
+            {
+                if (lvlNDataRow["ca_estado"] != null && lvlNDataRow["ca_estado"].ToString() != "" && lvlNDataRow["ca_estado"].ToString() == "L")
+                {
+                    childNode.Value = lvlNDataRow["ca_id"].ToString();
+                    childNode.Text = "<div class='d-flex align-items-center'><div><div class='badge badge-circle icon-child2-treeview mr-2'><i class='fas fa-user'></i></div></div><div>" + lvlNDataRow["ca_ti_item"].ToString() + " - " + lvlNDataRow["ca_num_item"].ToString() + " ACEFALIA" + "</div></div>";
+
+                    TreeNode parentNode = tv_nivelOrg.SelectedNode;
+                    validarNodo(parentNode, childNode);
+                }
+            }
+
+        }
+
+        if (detalleItem.Tables[0].Rows.Count > 0)
+        {
+            if (detalleItem.Tables[0].Rows[0]["eo_id"] != DBNull.Value && detalleItem.Tables[0].Rows[0]["eo_id"].ToString().Trim() != "") { p_eo_id.Value = detalleItem.Tables[0].Rows[0]["eo_id"].ToString().Trim(); }
+            if (detalleItem.Tables[0].Rows[0]["eo_descripcion"] != DBNull.Value && detalleItem.Tables[0].Rows[0]["eo_descripcion"].ToString().Trim() != "") { ltl_categoria.Text = detalleItem.Tables[0].Rows[0]["eo_descripcion"].ToString().Trim(); }
+            if (detalleItem.Tables[0].Rows[0]["cp_descripcion"] != DBNull.Value && detalleItem.Tables[0].Rows[0]["cp_descripcion"].ToString().Trim() != "") { lvl_unidad_org.Text = detalleItem.Tables[0].Rows[0]["cp_descripcion"].ToString().Trim(); }
+            if (detalleItem.Tables[0].Rows[0]["es_escalafon"] != DBNull.Value && detalleItem.Tables[0].Rows[0]["es_escalafon"].ToString().Trim() != "") { ltl_codigo.Text = detalleItem.Tables[0].Rows[0]["es_escalafon"].ToString().Trim(); }
+            if (detalleItem.Tables[0].Rows[0]["ns_clase"] != DBNull.Value && detalleItem.Tables[0].Rows[0]["ns_clase"].ToString().Trim() != "") { ltl_clase.Text = detalleItem.Tables[0].Rows[0]["ns_clase"].ToString().Trim(); }
+            if (detalleItem.Tables[0].Rows[0]["ns_nivel"] != DBNull.Value && detalleItem.Tables[0].Rows[0]["ns_nivel"].ToString().Trim() != "") { ltl_nivel_salarial.Text = detalleItem.Tables[0].Rows[0]["ns_nivel"].ToString().Trim(); }
+            if (detalleItem.Tables[0].Rows[0]["haber_basico"] != DBNull.Value && detalleItem.Tables[0].Rows[0]["haber_basico"].ToString().Trim() != "")
+            {
+                string haberBasico = detalleItem.Tables[0].Rows[0]["haber_basico"].ToString().Trim();
+                double haberBasicoAsignar = Convert.ToDouble(haberBasico);
+                //haberBasicoAsignar = Math.Round(haberBasicoAsignar);
+                p_ca_haber_basico.Value = Convert.ToString(haberBasicoAsignar);
+
+                decimal haberBasicoAsignarVista = Convert.ToDecimal(haberBasico);
+                haberBasicoAsignarVista = Math.Round(haberBasicoAsignarVista, 2);
+                ltl_haber_basico.Text = Convert.ToString(haberBasicoAsignarVista);
+            }
+            if (detalleItem.Tables[0].Rows[0]["ca_ti_item"] != DBNull.Value && detalleItem.Tables[0].Rows[0]["ca_ti_item"].ToString().Trim() != "")
+            {
+                ddl_tipo_item.Items.Clear();
+                ddl_tipo_item.DataValueField = "ti_item";
+                ddl_tipo_item.DataTextField = "ti_descripcion";
+                ddl_tipo_item.DataSource = detalleItem;
+                ddl_tipo_item.DataBind();
+                ddl_tipo_item.Enabled = false;
+            }
+
+            if (detalleItem.Tables[0].Rows[0]["es_descripcion"] != DBNull.Value && detalleItem.Tables[0].Rows[0]["es_descripcion"].ToString().Trim() != "")
+            {
+                ddl_cargo.Items.Clear();
+                ddl_cargo.DataValueField = "es_id";
+                ddl_cargo.DataTextField = "es_descripcion";
+                ddl_cargo.DataSource = detalleItem;
+                ddl_cargo.DataBind();
+                ddl_cargo.Enabled = false;
+            }
+            if (detalleItem.Tables[0].Rows[0]["ca_tipo_jornada"] != DBNull.Value && detalleItem.Tables[0].Rows[0]["ca_tipo_jornada"].ToString().Trim() != "")
+            {
+                ddl_tipo_jornada.SelectedValue = detalleItem.Tables[0].Rows[0]["ca_tipo_jornada"].ToString();
+            }
+            sc = " $('#detalleitem').css('display', 'block');  $('#botonGuardar').css('display', 'none');";
+            SetScript(sc);
+
+            /*DATOS SUPLENCIA*/
+            string genero = "";
+            string tipo_item = "";
+            if (detalleItem.Tables[0].Rows[0]["per_sexo"] != DBNull.Value && detalleItem.Tables[0].Rows[0]["per_sexo"].ToString().Trim() != "") { genero = detalleItem.Tables[0].Rows[0]["per_sexo"].ToString().Trim(); }
+            if (detalleItem.Tables[0].Rows[0]["ti_tipo_item_gral"] != DBNull.Value && detalleItem.Tables[0].Rows[0]["ti_tipo_item_gral"].ToString().Trim() != "") { tipo_item = detalleItem.Tables[0].Rows[0]["ti_tipo_item_gral"].ToString().Trim(); }
+
+            if (genero == "F")
+            {
+                sc = "$('#botonSuplencia').css('display', 'block'); ";
+                SetScript(sc);
+                txt_cantidad.Enabled = false;
+            }
+            else
+            {
+                sc = "$('#botonSuplencia').css('display', 'none'); ";
+                SetScript(sc);
+            }
+        }
+        else
+        {
+            sc = " $('#detalleitem').css('display', 'none'); $('#botonGuardar').css('display', 'block'); $('#botonSuplencia').css('display', 'none'); ";
+            SetScript(sc);
+        }
+
+
+        tv_nivelOrg.SelectedNode.Expand();
+
+        tv_nivelOrg.SelectedNode.Checked = true;
+    }
+
+    private void validarNodo(TreeNode parentNode, TreeNode childNode)
+    {
+        if (parentNode.ChildNodes.Count > 0)
+        {
+            bool sw = false;
+            foreach (TreeNode childNodesParent in parentNode.ChildNodes)
+            {
+                if (childNodesParent.Value != childNode.Value)
+                {
+                    //tv_nivelOrg.SelectedNode.ChildNodes.Add(childNode);
+                    sw = true;
+                }
+                else
+                {
+                    sw = false;
+                    break;
+                }
+            }
+            if (sw)
+            {
+                tv_nivelOrg.SelectedNode.ChildNodes.Add(childNode);
+            }
+        }
+        else
+        {
+            tv_nivelOrg.SelectedNode.ChildNodes.Add(childNode);
+        }
+    }
+
+    private void listaFiltradoCargo(int id = 0, string gestionFiltrar = "")
+    {
+        try
+        {
+            cargo = new cls_mp_cargo();
+            cargo.gestion_selec = (string)HttpContext.Current.Session["pr_id"].ToString();// gestionFiltrar;
+            cargo.ca_ti_item = ddl_tipo_item.SelectedValue;
+
+            ddl_cargo.Items.Clear();
+            ddl_cargo.Items.Insert(0, new ListItem("Seleccione...", "0"));
+            ddl_cargo.DataValueField = "es_id";
+            ddl_cargo.DataTextField = "es_descripcion";
+            DataSet ds = cargo.ObtenerFiltradoCargoUO();
+            ddl_cargo.DataSource = cargo.ObtenerFiltradoCargoUO();
+            ddl_cargo.DataBind();
+
+
+        }
+        catch (Exception e)
+        {
+            Console.Error.Write(e.Message);
+        }
+    }
+
+    private void listaFiltradoTipoItem(int eo_id = 0)
+    {
+        try
+        {
+            cargo = new cls_mp_cargo();
+            cargo.eo_id = eo_id;
+
+            ddl_tipo_item.Items.Clear();
+            ddl_tipo_item.DataValueField = "ti_item";
+            ddl_tipo_item.DataTextField = "ti_descripcion";
+            var tipoItem = cargo.ObtenerFiltradoTipoItemUOCreacion();
+            if (tipoItem.Tables[0].Rows.Count > 0)
+            {
+                ddl_tipo_item.DataSource = tipoItem;
+                ddl_tipo_item.Enabled = true;
+                ddl_cargo.Enabled = true;
+                ddl_tipo_jornada.Enabled = true;
+                txt_cantidad.Enabled = true;
+            }
+            else
+            {
+                ddl_tipo_item.Enabled = false;
+                ddl_cargo.Enabled = false;
+                ddl_tipo_jornada.Enabled = false;
+                txt_cantidad.Enabled = false;
+            }
+            ddl_tipo_item.DataBind();
+
+        }
+        catch (Exception e)
+        {
+            Console.Error.Write(e.Message);
+        }
+    }
+
+    private void listaFiltradoTipoDoc()
+    {
+        try
+        {
+            _catalogo = new cls_catalogo { cat_tabla = "tipo_documento_impreso" };
+            var detalle_catalogo = _catalogo.ObtenerTablaCombo().Tables[0];
+
+            DataTable lista_catalogo = new DataTable();
+            lista_catalogo.Columns.Add("cat_id");
+            lista_catalogo.Columns.Add("cat_descripcion");
+            DataRow dr = null;
+
+            int[] ids = { 816, 818, 819, 821 };
+
+            for (int i = 0; i < ids.Length; i++)
+            {
+                for (int j = 0; j < detalle_catalogo.Rows.Count; j++)
+                {
+                    if (ids[i] == Convert.ToInt32(validarCampo(detalle_catalogo.Rows[j]["cat_id"])))
+                    {
+                        dr = lista_catalogo.NewRow();
+                        dr["cat_id"] = validarCampo(detalle_catalogo.Rows[j]["cat_id"]);
+                        dr["cat_descripcion"] = validarCampo(detalle_catalogo.Rows[j]["cat_descripcion"]);
+                        lista_catalogo.Rows.Add(dr);
+                        break;
+                    }
+                }
+            }
+
+            ddl_tipo_documento.Items.Clear();
+            ddl_tipo_documento.Items.Insert(0, new ListItem("Seleccione...", "0"));
+            ddl_tipo_documento.DataValueField = "cat_id";
+            ddl_tipo_documento.DataTextField = "cat_descripcion";
+            ddl_tipo_documento.DataSource = lista_catalogo;
+            ddl_tipo_documento.DataBind();
+        }
+        catch (Exception e)
+        {
+            Console.Error.Write(e.Message);
+        }
+    }
+    protected void ddl_tipo_documento_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        txt_num_doc.Text = "";
+        d_num_doc.Visible = false;
+        d_tipo_doc.Attributes.Add("class", "col-md-6");
+        d_fecha_doc.Attributes.Add("class", "col-md-6");
+
+        switch (ddl_tipo_documento.SelectedValue)
+        {
+            case "818":
+                d_tipo_doc.Attributes.Add("class", "col-md-4");
+                d_num_doc.Attributes.Add("class", "col-md-4");
+                d_fecha_doc.Attributes.Add("class", "col-md-4");
+                d_num_doc.Visible = true;
+
+                txt_num_doc.Attributes.Add("class", "form-control");
+                break;
+
+            case "816":
+                d_tipo_doc.Attributes.Add("class", "col-md-4");
+                d_num_doc.Attributes.Add("class", "col-md-4");
+                d_fecha_doc.Attributes.Add("class", "col-md-4");
+                d_num_doc.Visible = true;
+
+                txt_num_doc.Attributes.Add("class", "form-control numero");
+                break;
+            case "819":
+                d_tipo_doc.Attributes.Add("class", "col-md-4");
+                d_num_doc.Attributes.Add("class", "col-md-4");
+                d_fecha_doc.Attributes.Add("class", "col-md-4");
+                d_num_doc.Visible = true;
+
+                txt_num_doc.Attributes.Add("class", "form-control");
+                break;
+            case "821":
+                d_tipo_doc.Attributes.Add("class", "col-md-4");
+                d_num_doc.Attributes.Add("class", "col-md-4");
+                d_fecha_doc.Attributes.Add("class", "col-md-4");
+                d_num_doc.Visible = true;
+
+                txt_num_doc.Attributes.Add("class", "form-control");
+                break;
+            default:
+                break;
+        }
+        sc = "$('body').removeClass('modal-open'); $('.modal-backdrop').remove(); MostrarMascara(false); $('#modalGlosa').modal('show');";
+        SetScript(sc);
+    }
+    protected void btn_cancelar_glosa_Click(object sender, EventArgs e)
+    {
+        restablecerGlosa();
+        sc = "$('#modalGlosa').modal('hide');";
+        SetScript(sc);
+    }
+    private void restablecerGlosa()
+    {
+        ddl_tipo_documento.SelectedValue = "0";
+        txt_num_doc.Text = "";
+        txt_fechaMov.Text = "";
+        txt_descripcion_add.Text = "";
+        d_num_doc.Visible = false;
+        d_tipo_doc.Attributes.Add("class", "col-md-6");
+        d_fecha_doc.Attributes.Add("class", "col-md-6");
+    }
+    private string validarCampo(object p_campo)
+    {
+        string campo = "";
+
+        if (p_campo != DBNull.Value && p_campo.ToString().Trim() != "")
+        {
+            campo = p_campo.ToString().Trim();
+        }
+        return campo;
+    }
+    private void SetScript(string data)
+    {
+        Guid g;
+        g = Guid.NewGuid();
+        string uuid = g.ToString();
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.Append(@"<script type='text/javascript'>");
+        sb.Append(data);
+        sb.Append("$('.numero').on('input', function (event) { this.value = this.value.replace(/[^0-9]/g, ''); });");
+        sb.Append("$('.select2').select2({ placeholder: { id: '0', text: 'Seleccione...' } }); ");
+        sb.Append("$('#ContentPlaceHolder1_ddl_tipo_documento').select2({ dropdownParent: $('#modalGlosa'), placeholder: { id: '0', text: 'Seleccione...' } });");
+        sb.Append("var me = $('.datepicker'); me.mask('99/99/9999'); ");
+        sb.Append(@"</script>");
+        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), uuid, sb.ToString(), false);
+    }
+
+    protected void ddl_cargo_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        cargo = new cls_mp_cargo();
+
+        cargo.gestion_selec = Session["pr_id"].ToString();
+        cargo.es_cod_esc = Convert.ToInt32(ddl_cargo.SelectedValue);
+        var detalleUO = cargo.ObtenerDetalleUO();
+        if (detalleUO.Tables[0].Rows.Count > 0)
+        {
+            if (detalleUO.Tables[0].Rows[0]["es_escalafon"] != DBNull.Value && detalleUO.Tables[0].Rows[0]["es_escalafon"].ToString().Trim() != "") { ltl_codigo.Text = detalleUO.Tables[0].Rows[0]["es_escalafon"].ToString().Trim(); }
+            if (detalleUO.Tables[0].Rows[0]["ns_clase"] != DBNull.Value && detalleUO.Tables[0].Rows[0]["ns_clase"].ToString().Trim() != "") { ltl_clase.Text = detalleUO.Tables[0].Rows[0]["ns_clase"].ToString().Trim(); }
+            if (detalleUO.Tables[0].Rows[0]["ns_nivel"] != DBNull.Value && detalleUO.Tables[0].Rows[0]["ns_nivel"].ToString().Trim() != "") { ltl_nivel_salarial.Text = detalleUO.Tables[0].Rows[0]["ns_nivel"].ToString().Trim(); }
+            if (detalleUO.Tables[0].Rows[0]["haber_basico"] != DBNull.Value && detalleUO.Tables[0].Rows[0]["haber_basico"].ToString().Trim() != "")
+            {
+                string haberBasico = detalleUO.Tables[0].Rows[0]["haber_basico"].ToString().Trim();
+                //double haberBasicoAsignar = Convert.ToDouble( haberBasico);
+                //haberBasicoAsignar = Math.Round(haberBasicoAsignar);
+
+                p_ca_haber_basico.Value = Convert.ToString(haberBasico);
+
+                decimal haberBasicoAsignarVista = Convert.ToDecimal(haberBasico);
+                //haberBasicoAsignarVista = Math.Round(haberBasicoAsignarVista, 2);
+                ltl_haber_basico.Text = Convert.ToString(haberBasicoAsignarVista);
+            }
+            sc = " $('#detalleitem').css('display', 'block'); ";
+            SetScript(sc);
+        }
+
+        int eo_id = Convert.ToInt32(tv_nivelOrg.SelectedNode.Value);
+        cargo.eo_id = eo_id;
+        var detalleItem = cargo.ObtenerDetalleitem();
+
+        if (detalleItem.Tables[0].Rows.Count == 0)
+        {
+            sc = "$('#botonGuardar').css('display', 'block');";
+            SetScript(sc);
+        }
+        else
+        {
+            sc = " $('#botonGuardar').css('display', 'none'); ";
+            SetScript(sc);
+        }
+    }
+
+    protected void btnFiltrar_Click(object sender, EventArgs e)
+    {
+        sc = "$('#modalGlosa').modal('show');";
+        SetScript(sc);
+    }
+    protected void btn_adicionar_glosa_Click(object sender, EventArgs e)
+    {
+        cargo = new cls_mp_cargo();
+        int cantidad = Convert.ToInt32(txt_cantidad.Text);
+
+        string hb_s = p_ca_haber_basico_suplencia.Value;
+        for (int i = 0; i < cantidad; i++)
+        {
+            string ca_id = generarIdCargo();
+            int genera_ca_id = Convert.ToInt32(ca_id);
+            genera_ca_id = genera_ca_id + 1;
+
+            string num_item = generarNroItem();
+            int genera_num_item = Convert.ToInt32(num_item);
+            genera_num_item = genera_num_item + 1;
+
+            cargo.ca_id = genera_ca_id;
+            cargo.ca_es_id = Convert.ToInt32(ddl_cargo.SelectedValue);
+            cargo.ca_eo_id = (hb_s != "") ? Convert.ToInt32(p_eo_id.Value) : Convert.ToInt32(tv_nivelOrg.SelectedNode.Value);
+            cargo.ca_ti_item = ddl_tipo_item.SelectedValue;
+            cargo.ca_num_item = genera_num_item;
+            cargo.ca_estado = "L";
+            cargo.ca_aplica_incremento = "NO";
+
+            if (ddl_tipo_jornada.SelectedItem.Text == "MEDIO TIEMPO")
+                cargo.ca_basico_calculado = Math.Round(Convert.ToDouble(Convert.ToDouble( p_ca_haber_basico.Value) / 2),2).ToString();
+            else
+            cargo.ca_basico_calculado = (hb_s != "") ? p_ca_haber_basico_suplencia.Value : p_ca_haber_basico.Value;
+
+            cargo.ca_tipo_jornada = ddl_tipo_jornada.SelectedValue;
+            cargo.ca_fecha_modificacion = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            cargo.ca_tipo_calculo = 0;
+            cargo.ca_pr_id = Session["pr_id"].ToString();
+            cargo.ca_usuario_creacion = Convert.ToInt32(Session["us_id"].ToString());
+
+            cargo.AdicionarCargoUO();
+
+            guardarGlosa(genera_ca_id, "ca_id", "tbl_mp_cargo");
+        }
+
+        sc = "$.notify({ icon: 'fa fa-check', message: 'Ítem(s) creado(s) correctamente'},{type: 'success', placement: { from: 'bottom', align: 'right'} });  $('#modalGlosa').modal('hide'); $('body').removeClass('modal-open'); $('.modal-backdrop').remove(); MostrarMascara(false);";
+        SetScript(sc);
+        Limpiar();
+        Session["texto_notificacion"] = "¡Ítem(s) creado(s) correctamente!";
+        Response.Redirect("ListaItems");
+    }
+    private void guardarGlosa(int gl_valor_pk = 0, string gl_nombre_pk = "", string gl_tabla = "")
+    {
+        string hora = DateTime.Now.ToString("HH:mm:ss");
+        string fechaMov = txt_fechaMov.Text + " " + hora;
+
+        glosa = new cls_glosa();
+        glosa.gl_valor_pk = gl_valor_pk + "";
+        glosa.gl_nombre_pk = gl_nombre_pk;
+        glosa.gl_tabla = gl_tabla;
+        glosa.gl_tipo_mov = 813;
+        glosa.gl_fecha_doc = Convert.ToDateTime(fechaMov);
+        glosa.gl_tipo_doc = Convert.ToInt32(ddl_tipo_documento.SelectedValue);
+        glosa.gl_numero_doc = (txt_num_doc.Text.Trim() != "") ? txt_num_doc.Text.Trim() : null;
+        glosa.gl_glosa = txt_descripcion_add.Text.Trim().ToUpper();
+        glosa.gl_estado = "V";
+        glosa.gl_usuario = Convert.ToInt32(Session["us_id"].ToString());
+        glosa.Adicionar();
+        restablecerGlosa();
+    }
+    private string generarIdCargo()
+    {
+        cargo = new cls_mp_cargo();
+        var pe_cargo = cargo.ObtenerIdCargo();
+        string ca_id = "";
+        if (pe_cargo.Tables[0].Rows.Count > 0)
+        {
+            if (pe_cargo.Tables[0].Rows[0]["ca_id"] != DBNull.Value && pe_cargo.Tables[0].Rows[0]["ca_id"].ToString().Trim() != "")
+            {
+                ca_id = pe_cargo.Tables[0].Rows[0]["ca_id"].ToString().Trim();
+            }
+
+        }
+        return ca_id;
+    }
+
+    private string generarNroItem()
+    {
+        cargo = new cls_mp_cargo();
+        cargo.eo_id = Convert.ToInt32(tv_nivelOrg.SelectedNode.Value);
+        cargo.gestion_selec = Session["pr_id"].ToString();
+        var pe_cargo = cargo.ObtenerNroItem();
+        string ca_num_item = "";
+        if (pe_cargo.Tables[0].Rows.Count > 0)
+        {
+            if (pe_cargo.Tables[0].Rows[0]["ca_num_item"] != DBNull.Value && pe_cargo.Tables[0].Rows[0]["ca_num_item"].ToString().Trim() != "")
+            {
+                ca_num_item = pe_cargo.Tables[0].Rows[0]["ca_num_item"].ToString().Trim();
+            }
+
+        }
+        return ca_num_item;
+    }
+
+    protected void btn_cancelar_Click(object sender, EventArgs e)
+    {
+        Limpiar();
+        sc = "$('#modalGlosa').modal('hide'); $('body').removeClass('modal-open'); $('.modal-backdrop').remove(); $('#botonGuardar').css('display', 'block');";
+        SetScript(sc);
+    }
+
+    private void Limpiar()
+    {
+        txt_cantidad.Text = string.Empty;
+        txt_descripcion_add.Text = string.Empty;
+    }
+
+
+    protected void btnSuplencia_Click(object sender, EventArgs e)
+    {
+        string haberBasico = p_ca_haber_basico.Value;
+        double haberBasicoAsignar = Convert.ToDouble(haberBasico);
+
+        double aux1 = (haberBasicoAsignar * 0.9);
+        double aux2 = (aux1 * 0.1671);
+
+        haberBasicoAsignar = aux1 - aux2;
+        haberBasicoAsignar = Math.Round(haberBasicoAsignar);
+        p_ca_haber_basico_suplencia.Value = Convert.ToString(haberBasicoAsignar);
+
+        ltl_haber_basico.Text = String.Format("{0:0.00}", haberBasicoAsignar);
+
+
+        /*cargar combo*/
+        int eo_id = Convert.ToInt32(p_eo_id.Value);
+        listaFiltradoTipoItemSuplencia(eo_id);
+        txt_cantidad.Text = "1";
+        sc = " $('#detalleitem').css('display', 'block');  $('#botonGuardar').css('display', 'block');";
+        SetScript(sc);
+    }
+
+    private void listaFiltradoTipoItemSuplencia(int eo_id = 0)
+    {
+        try
+        {
+            cargo = new cls_mp_cargo();
+            cargo.eo_id = eo_id;
+
+            ddl_tipo_item.Items.Clear();
+            ddl_tipo_item.DataValueField = "ti_item";
+            ddl_tipo_item.DataTextField = "ti_descripcion";
+            var tipoItem = cargo.ObtenerFiltradoTipoItemUOSuplencia();
+            ddl_tipo_item.DataSource = tipoItem;
+            ddl_tipo_item.Enabled = false;
+
+            ddl_tipo_item.DataBind();
+
+        }
+        catch (Exception e)
+        {
+            Console.Error.Write(e.Message);
+        }
+    }
+
+    protected void ddl_tipo_item_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        listaFiltradoCargo();
+        SetScript("");
+    }
+}

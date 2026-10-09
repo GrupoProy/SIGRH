@@ -1,0 +1,16 @@
+bin/
+obj/
+$tf/
+*.dll
+*.pdb
+*.gz
+*.exe
+*.user
+*.suo
+packages/
+.vs/
+*.cache
+*.log
+.Up2Date
+*.csproj
+!ReportesUAP/bin/Debug/*.rdl

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Planillas">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=172.16.21.100;Initial Catalog=sigrh3</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>7b284ac5-2e4f-4fd2-9a22-28df07cd9dbe</DataSourceID>
+</RptDataSource>

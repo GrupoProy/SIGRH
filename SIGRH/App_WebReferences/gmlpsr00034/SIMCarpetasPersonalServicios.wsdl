@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="VerificaUsuarioRol">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="rol" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigo_ue" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="gestion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificaUsuarioRolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerificaUsuarioRolResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdicionarCarpetaCPE">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="registro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="descripcion_Tareas" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdicionarCarpetaCPEResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdicionarCarpetaCPEResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DatosPoaPartida">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cod_programa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cod_proyecto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cod_actividad" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigo_ue" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="gestion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DatosPoaPartidaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DatosPoaPartidaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjustePresupuesto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="registro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AjustePresupuestoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AjustePresupuestoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarPresupuestoFormulacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="registro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarPresupuestoFormulacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ActualizarPresupuestoFormulacionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaUsuarioSIM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="registro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaUsuarioSIMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AltaUsuarioSIMResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="VerificaUsuarioRolSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificaUsuarioRol" />
+  </wsdl:message>
+  <wsdl:message name="VerificaUsuarioRolSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificaUsuarioRolResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdicionarCarpetaCPESoapIn">
+    <wsdl:part name="parameters" element="tns:AdicionarCarpetaCPE" />
+  </wsdl:message>
+  <wsdl:message name="AdicionarCarpetaCPESoapOut">
+    <wsdl:part name="parameters" element="tns:AdicionarCarpetaCPEResponse" />
+  </wsdl:message>
+  <wsdl:message name="DatosPoaPartidaSoapIn">
+    <wsdl:part name="parameters" element="tns:DatosPoaPartida" />
+  </wsdl:message>
+  <wsdl:message name="DatosPoaPartidaSoapOut">
+    <wsdl:part name="parameters" element="tns:DatosPoaPartidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AjustePresupuestoSoapIn">
+    <wsdl:part name="parameters" element="tns:AjustePresupuesto" />
+  </wsdl:message>
+  <wsdl:message name="AjustePresupuestoSoapOut">
+    <wsdl:part name="parameters" element="tns:AjustePresupuestoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarPresupuestoFormulacionSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarPresupuestoFormulacion" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarPresupuestoFormulacionSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarPresupuestoFormulacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaUsuarioSIMSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaUsuarioSIM" />
+  </wsdl:message>
+  <wsdl:message name="AltaUsuarioSIMSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaUsuarioSIMResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SIMCarpetasPersonalServiciosSoap">
+    <wsdl:operation name="VerificaUsuarioRol">
+      <wsdl:input message="tns:VerificaUsuarioRolSoapIn" />
+      <wsdl:output message="tns:VerificaUsuarioRolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdicionarCarpetaCPE">
+      <wsdl:input message="tns:AdicionarCarpetaCPESoapIn" />
+      <wsdl:output message="tns:AdicionarCarpetaCPESoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DatosPoaPartida">
+      <wsdl:input message="tns:DatosPoaPartidaSoapIn" />
+      <wsdl:output message="tns:DatosPoaPartidaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AjustePresupuesto">
+      <wsdl:input message="tns:AjustePresupuestoSoapIn" />
+      <wsdl:output message="tns:AjustePresupuestoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPresupuestoFormulacion">
+      <wsdl:input message="tns:ActualizarPresupuestoFormulacionSoapIn" />
+      <wsdl:output message="tns:ActualizarPresupuestoFormulacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaUsuarioSIM">
+      <wsdl:input message="tns:AltaUsuarioSIMSoapIn" />
+      <wsdl:output message="tns:AltaUsuarioSIMSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SIMCarpetasPersonalServiciosSoap" type="tns:SIMCarpetasPersonalServiciosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerificaUsuarioRol">
+      <soap:operation soapAction="http://tempuri.org/VerificaUsuarioRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdicionarCarpetaCPE">
+      <soap:operation soapAction="http://tempuri.org/AdicionarCarpetaCPE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DatosPoaPartida">
+      <soap:operation soapAction="http://tempuri.org/DatosPoaPartida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjustePresupuesto">
+      <soap:operation soapAction="http://tempuri.org/AjustePresupuesto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPresupuestoFormulacion">
+      <soap:operation soapAction="http://tempuri.org/ActualizarPresupuestoFormulacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaUsuarioSIM">
+      <soap:operation soapAction="http://tempuri.org/AltaUsuarioSIM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SIMCarpetasPersonalServiciosSoap12" type="tns:SIMCarpetasPersonalServiciosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerificaUsuarioRol">
+      <soap12:operation soapAction="http://tempuri.org/VerificaUsuarioRol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdicionarCarpetaCPE">
+      <soap12:operation soapAction="http://tempuri.org/AdicionarCarpetaCPE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DatosPoaPartida">
+      <soap12:operation soapAction="http://tempuri.org/DatosPoaPartida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AjustePresupuesto">
+      <soap12:operation soapAction="http://tempuri.org/AjustePresupuesto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPresupuestoFormulacion">
+      <soap12:operation soapAction="http://tempuri.org/ActualizarPresupuestoFormulacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaUsuarioSIM">
+      <soap12:operation soapAction="http://tempuri.org/AltaUsuarioSIM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SIMCarpetasPersonalServicios">
+    <wsdl:port name="SIMCarpetasPersonalServiciosSoap" binding="tns:SIMCarpetasPersonalServiciosSoap">
+      <soap:address location="http://gmlpsr00034/SIMv2SIGRH/DPC/Ejecucion/Personal/SIMCarpetasPersonalServicios.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SIMCarpetasPersonalServiciosSoap12" binding="tns:SIMCarpetasPersonalServiciosSoap12">
+      <soap12:address location="http://gmlpsr00034/SIMv2SIGRH/DPC/Ejecucion/Personal/SIMCarpetasPersonalServicios.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
